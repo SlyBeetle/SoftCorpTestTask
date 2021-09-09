@@ -6,7 +6,7 @@ using OpenQA.Selenium.PhantomJS;
 
 namespace GismeteoParser
 {
-    class Program
+    internal class Program
     {
         private const string HOME_PAGE = @"https://www.gismeteo.ru/";
 
