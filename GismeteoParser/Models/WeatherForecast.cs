@@ -5,16 +5,16 @@
         public string Date { get; set; }
 
         // Centigrade
-        public Temperature Temperature { get; set; }
+        public Temperature Temperature { get; set; } = new Temperature();
 
         // In meters per second
-        public Wind Wind { get; set; }
+        public Wind Wind { get; set; } = new Wind();
 
         // In millimeters 
         public double PrecipitationTotal { get; set; }
 
         // In millimeters of mercury
-        public Pressure Pressure { get; set; }
+        public Pressure Pressure { get; set; } = new Pressure();
 
         // In percents
         public int RelativeHumidity { get; set; }
