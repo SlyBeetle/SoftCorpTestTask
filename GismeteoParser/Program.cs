@@ -1,4 +1,5 @@
 ﻿using System;
+using GismeteoParser.Infrastructure;
 using GismeteoParser.Models;
 using OpenQA.Selenium.PhantomJS;
 

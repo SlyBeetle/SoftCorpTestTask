@@ -1,4 +1,5 @@
-﻿using HtmlAgilityPack;
+﻿using GismeteoParser.Infrastructure;
+using HtmlAgilityPack;
 using OpenQA.Selenium;
 
 namespace GismeteoParser

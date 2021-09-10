@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using HtmlAgilityPack;
 
-namespace GismeteoParser
+namespace GismeteoParser.Infrastructure
 {
     internal interface IFrameParser<T>
     {
