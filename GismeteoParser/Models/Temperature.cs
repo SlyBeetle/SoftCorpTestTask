@@ -1,4 +1,4 @@
-﻿namespace GismeteoParser.Models
+﻿namespace GismeteoParserConsoleApplication.Models
 {
     // Centigrade
     internal class Temperature

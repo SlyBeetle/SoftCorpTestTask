@@ -52,9 +52,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ForecastFrameParser.cs" />
-    <Compile Include="GismeteoParser.cs" />
-    <Compile Include="Grabber.cs" />
+    <Compile Include="Services\ForecastFrameParser.cs" />
+    <Compile Include="Services\GismeteoParser.cs" />
+    <Compile Include="Services\Grabber.cs" />
     <Compile Include="Infrastructure\IHtmlDocumentProvider.cs" />
     <Compile Include="Infrastructure\IFrameParser.cs" />
     <Compile Include="Models\Pressure.cs" />

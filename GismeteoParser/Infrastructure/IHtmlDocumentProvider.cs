@@ -1,6 +1,6 @@
 ﻿using HtmlAgilityPack;
 
-namespace GismeteoParser.Infrastructure
+namespace GismeteoParserConsoleApplication.Infrastructure
 {
     internal interface IHtmlDocumentProvider
     {

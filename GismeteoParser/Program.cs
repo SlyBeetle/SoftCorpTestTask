@@ -1,9 +1,10 @@
 ﻿using System;
-using GismeteoParser.Infrastructure;
-using GismeteoParser.Models;
+using GismeteoParserConsoleApplication.Infrastructure;
+using GismeteoParserConsoleApplication.Models;
+using GismeteoParserConsoleApplication.Services;
 using OpenQA.Selenium.PhantomJS;
 
-namespace GismeteoParser
+namespace GismeteoParserConsoleApplication
 {
     internal class Program
     {

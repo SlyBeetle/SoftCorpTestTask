@@ -1,8 +1,8 @@
-﻿using GismeteoParser.Infrastructure;
+﻿using GismeteoParserConsoleApplication.Infrastructure;
 using HtmlAgilityPack;
 using OpenQA.Selenium;
 
-namespace GismeteoParser
+namespace GismeteoParserConsoleApplication.Services
 {
     internal class Grabber : IHtmlDocumentProvider
     {

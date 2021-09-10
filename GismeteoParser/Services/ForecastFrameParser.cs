@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using GismeteoParser.Infrastructure;
-using GismeteoParser.Models;
+using GismeteoParserConsoleApplication.Infrastructure;
+using GismeteoParserConsoleApplication.Models;
 using HtmlAgilityPack;
 
-namespace GismeteoParser
+namespace GismeteoParserConsoleApplication.Services
 {
     internal class ForecastFrameParser : IFrameParser<WeatherForecast>
     {
