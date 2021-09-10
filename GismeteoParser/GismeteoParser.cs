@@ -10,12 +10,12 @@ namespace GismeteoParser
         private const string HOME_PAGE = @"https://www.gismeteo.ru/";
 
         private readonly IHtmlDocumentProvider _htmlDocumentProvider;
-        private readonly ICollection<IFrameParser<WeatherForecast>> _wheatherForecastForTenDaysParsers;
+        private readonly ICollection<IFrameParser<WeatherForecast>> _frameParsers;
 
         public GismeteoParser(IHtmlDocumentProvider htmlDocumentProvider, ICollection<IFrameParser<WeatherForecast>> wheatherForecastForTenDaysParsers)
         {
             _htmlDocumentProvider = htmlDocumentProvider;
-            _wheatherForecastForTenDaysParsers = wheatherForecastForTenDaysParsers;
+            _frameParsers = wheatherForecastForTenDaysParsers;
         }
 
         private IEnumerable<string> GetUrlOfCities()
