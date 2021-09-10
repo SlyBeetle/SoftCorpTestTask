@@ -11,7 +11,7 @@
         public Wind Wind { get; set; }
 
         // In millimeters 
-        public int PrecipitationTotal { get; set; }
+        public double PrecipitationTotal { get; set; }
 
         // In millimeters of mercury
         public Pressure Pressure { get; set; }
