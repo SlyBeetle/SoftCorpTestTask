@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using HtmlAgilityPack;
-using OpenQA.Selenium;
 
 namespace GismeteoParser
 {
@@ -9,18 +8,16 @@ namespace GismeteoParser
     {
         private const string HOME_PAGE = @"https://www.gismeteo.ru/";
 
-        private readonly IWebDriver _webDriver;
+        private readonly IHtmlDocumentProvider _htmlDocumentProvider;
 
-        public GismeteoParser(IWebDriver webDriver)
+        public GismeteoParser(IHtmlDocumentProvider htmlDocumentProvider)
         {
-            _webDriver = webDriver;
+            _htmlDocumentProvider = htmlDocumentProvider;
         }
 
         public IEnumerable<string> GetUrlOfCities()
         {
-            _webDriver.Navigate().GoToUrl(HOME_PAGE);
-            HtmlDocument homePage = new HtmlDocument();
-            homePage.LoadHtml(_webDriver.PageSource);
+            HtmlDocument homePage = _htmlDocumentProvider.GetHtmlDocument(HOME_PAGE);
             HtmlNodeCollection anchorsCollection = homePage.DocumentNode.SelectNodes("//section[@class=\"cities cities_frame __frame clearfix\"]//span[@class=\"cities_name\"]/..");
             return anchorsCollection.Select(a => a.Attributes["href"].Value);
         }

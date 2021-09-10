@@ -7,7 +7,7 @@ namespace GismeteoParser
     {
         static void Main()
         {
-            GismeteoParser gismeteoParser = new GismeteoParser(new PhantomJSDriver());
+            GismeteoParser gismeteoParser = new GismeteoParser(new Grabber(new PhantomJSDriver()));
             var urlOfCities = gismeteoParser.GetUrlOfCities();
             Console.WriteLine();
             foreach (string url in urlOfCities)
