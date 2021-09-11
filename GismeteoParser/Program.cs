@@ -27,6 +27,7 @@ namespace GismeteoParserConsoleApplication
                 Console.WriteLine(weatherForecast.Temperature.Max);
                 Console.WriteLine(weatherForecast.Temperature.Min);
                 Console.WriteLine(weatherForecast.PrecipitationTotal);
+                Console.WriteLine(weatherForecast.Temperature.DailyAverage);
                 Console.WriteLine();
             }
             Console.ReadKey();
@@ -45,6 +46,11 @@ namespace GismeteoParserConsoleApplication
                             new PrecipitationTotalsParser(),
                             new MaxTemperaturesParser(),
                             new MinTemperaturesParser()
+                        }),
+                    new DailyAverageTemperatureFrameParser(
+                        new IValuesParser<WeatherForecast>[]
+                        {
+                            new DailyAverageTemperaturesParser()
                         })
                 });
             unityContainer.RegisterType<IHtmlDocumentProvider, Grabber>();
