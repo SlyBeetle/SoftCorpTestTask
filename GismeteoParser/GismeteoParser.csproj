@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Infrastructure\IValuesParser.cs" />
-    <Compile Include="Services\ForecastFrameParser.cs" />
+    <Compile Include="Services\FrameParsers\ForecastFrameParser.cs" />
     <Compile Include="Services\GismeteoParser.cs" />
     <Compile Include="Services\Grabber.cs" />
     <Compile Include="Infrastructure\IHtmlDocumentProvider.cs" />

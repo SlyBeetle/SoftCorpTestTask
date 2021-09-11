@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using GismeteoParserConsoleApplication.FrameParsers.Services;
 using GismeteoParserConsoleApplication.Infrastructure;
 using GismeteoParserConsoleApplication.Models;
 using GismeteoParserConsoleApplication.Services;

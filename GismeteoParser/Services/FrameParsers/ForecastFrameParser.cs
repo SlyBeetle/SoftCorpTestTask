@@ -3,7 +3,7 @@ using GismeteoParserConsoleApplication.Infrastructure;
 using GismeteoParserConsoleApplication.Models;
 using HtmlAgilityPack;
 
-namespace GismeteoParserConsoleApplication.Services
+namespace GismeteoParserConsoleApplication.FrameParsers.Services
 {
     internal class ForecastFrameParser : IFrameParser<WeatherForecast>
     {
