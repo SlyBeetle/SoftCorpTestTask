@@ -77,6 +77,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Temperature.cs" />
     <Compile Include="Models\WeatherForecast.cs" />
+    <Compile Include="Services\ValuesParsers\WindFrame\DiractionsParser.cs" />
     <Compile Include="Services\ValuesParsers\WindFrame\WindVelocitiesParsers\MaxWindVelocitiesParser.cs" />
     <Compile Include="Services\ValuesParsers\WindFrame\WindVelocitiesParsers\DailyAverageWindVelocitiesParser.cs" />
     <Compile Include="Services\ValuesParsers\DailyAverageTemperatureFrame\DailyAverageTemperaturesParser.cs" />

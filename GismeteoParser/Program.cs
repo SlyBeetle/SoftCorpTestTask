@@ -7,6 +7,7 @@ using GismeteoParserConsoleApplication.Services.FrameParsers;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.DailyAverageTemperatureFrame;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.ForecastFrame;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.ForecastFrame.TemperatureExtremumsParsers;
+using GismeteoParserConsoleApplication.Services.ValuesParsers.WindFrame;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.WindFrame.WindVelocitiesParsers;
 using OpenQA.Selenium;
 using OpenQA.Selenium.PhantomJS;
@@ -32,6 +33,7 @@ namespace GismeteoParserConsoleApplication
                 Console.WriteLine(weatherForecast.Temperature.DailyAverage);
                 Console.WriteLine(weatherForecast.Wind.DailyAverageVelocity);
                 Console.WriteLine(weatherForecast.Wind.MaxVelocity);
+                Console.WriteLine(weatherForecast.Wind.Direction);
                 Console.WriteLine();
             }
             Console.ReadKey();
@@ -60,7 +62,8 @@ namespace GismeteoParserConsoleApplication
                         new IValuesParser<WeatherForecast>[]
                         {
                             new DailyAverageWindVelocitiesParser(),
-                            new MaxWindVelocitiesParser()
+                            new MaxWindVelocitiesParser(),
+                            new DiractionsParser()
                         })
                 });
             unityContainer.RegisterType<IHtmlDocumentProvider, Grabber>();
