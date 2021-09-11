@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1A61B023-426D-46D5-AB86-FBE6E75FE0E4}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>GismeteoParser</RootNamespace>
+    <RootNamespace>GismeteoParserConsoleApplication</RootNamespace>
     <AssemblyName>GismeteoParser</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
