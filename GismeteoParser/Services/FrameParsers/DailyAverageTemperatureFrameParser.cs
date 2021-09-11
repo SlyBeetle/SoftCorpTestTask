@@ -5,24 +5,17 @@ using HtmlAgilityPack;
 
 namespace GismeteoParserConsoleApplication.Services.FrameParsers
 {
-    internal class DailyAverageTemperatureFrameParser : IFrameParser<WeatherForecast>
+    internal class DailyAverageTemperatureFrameParser : FrameParser
     {
-        private readonly ICollection<IValuesParser<WeatherForecast>> _valuesParsers;
-        private HtmlNode _forecastFrame;
-
-        public DailyAverageTemperatureFrameParser(ICollection<IValuesParser<WeatherForecast>> valuesParsers)
+        public DailyAverageTemperatureFrameParser(ICollection<IValuesParser<WeatherForecast>> valuesParsers) : base(valuesParsers)
         {
-            _valuesParsers = valuesParsers;
         }
 
-        public void Parse(HtmlDocument page, IList<WeatherForecast> weatherForecastForTenDays)
+        public override void Parse(HtmlDocument page, IList<WeatherForecast> weatherForecastForTenDays)
         {
-            _forecastFrame = page.DocumentNode.SelectSingleNode("//div[@class=\"__frame_sm\"]/*[5]");
+            _frame = page.DocumentNode.SelectSingleNode("//div[@class=\"__frame_sm\"]/*[5]");
 
-            foreach (var valuesParser in _valuesParsers)
-            {
-                valuesParser.Parse(_forecastFrame, weatherForecastForTenDays);
-            }
+            ExecuteValuesParsers(weatherForecastForTenDays);
         }
     }
 }
