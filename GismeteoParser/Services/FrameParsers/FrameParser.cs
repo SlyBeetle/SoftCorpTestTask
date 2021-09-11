@@ -25,6 +25,7 @@ namespace GismeteoParserConsoleApplication.Services.FrameParsers
             }
         }
 
+        // Starting from one
         protected string GetFrameXPathByIndexNumber(int indexNumber) => $"//div[@class=\"__frame_sm\"]/*[{indexNumber}]";
     }
 }
