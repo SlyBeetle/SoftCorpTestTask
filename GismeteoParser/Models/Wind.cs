@@ -7,6 +7,6 @@
 
         public int DailyAverageVelocity { get; set; }
 
-        public string WindDirection { get; set; }
+        public string Direction { get; set; }
     }
 }
