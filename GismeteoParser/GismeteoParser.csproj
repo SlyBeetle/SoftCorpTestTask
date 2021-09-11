@@ -75,7 +75,9 @@
     <Compile Include="Models\WeatherForecast.cs" />
     <Compile Include="Services\ValuesParsers\DatesParser.cs" />
     <Compile Include="Services\ValuesParsers\PrecipitationTotalsParser.cs" />
-    <Compile Include="Services\ValuesParsers\TemperatureExtremumsParser.cs" />
+    <Compile Include="Services\ValuesParsers\TemperatureExtremumsParsers\MinTemperaturesParser.cs" />
+    <Compile Include="Services\ValuesParsers\TemperatureExtremumsParsers\MaxTemperaturesParser.cs" />
+    <Compile Include="Services\ValuesParsers\TemperatureExtremumsParsers\TemperatureExtremumsParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

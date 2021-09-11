@@ -5,6 +5,7 @@ using GismeteoParserConsoleApplication.Infrastructure;
 using GismeteoParserConsoleApplication.Models;
 using GismeteoParserConsoleApplication.Services;
 using GismeteoParserConsoleApplication.Services.ValuesParsers;
+using GismeteoParserConsoleApplication.Services.ValuesParsers.TemperatureExtremumsParsers;
 using OpenQA.Selenium;
 using OpenQA.Selenium.PhantomJS;
 using Unity;
@@ -24,7 +25,8 @@ namespace GismeteoParserConsoleApplication
                         {
                             new DatesParser(),
                             new PrecipitationTotalsParser(),
-                            new TemperatureExtremumsParser()
+                            new MaxTemperaturesParser(),
+                            new MinTemperaturesParser()
                         })
                 });
             unityContainer.RegisterType<IHtmlDocumentProvider, Grabber>();
