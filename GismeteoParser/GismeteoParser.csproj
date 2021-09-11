@@ -77,14 +77,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Temperature.cs" />
     <Compile Include="Models\WeatherForecast.cs" />
-    <Compile Include="Services\ValuesParsers\WindFrame\MaxWindVelocitiesParser.cs" />
-    <Compile Include="Services\ValuesParsers\WindFrame\DailyAverageWindVelocitiesParser.cs" />
+    <Compile Include="Services\ValuesParsers\WindFrame\WindVelocitiesParsers\MaxWindVelocitiesParser.cs" />
+    <Compile Include="Services\ValuesParsers\WindFrame\WindVelocitiesParsers\DailyAverageWindVelocitiesParser.cs" />
     <Compile Include="Services\ValuesParsers\DailyAverageTemperatureFrame\DailyAverageTemperaturesParser.cs" />
     <Compile Include="Services\ValuesParsers\ForecastFrame\DatesParser.cs" />
     <Compile Include="Services\ValuesParsers\ForecastFrame\PrecipitationTotalsParser.cs" />
     <Compile Include="Services\ValuesParsers\ForecastFrame\TemperatureExtremumsParsers\MinTemperaturesParser.cs" />
     <Compile Include="Services\ValuesParsers\ForecastFrame\TemperatureExtremumsParsers\MaxTemperaturesParser.cs" />
     <Compile Include="Services\ValuesParsers\ForecastFrame\TemperatureExtremumsParsers\TemperatureExtremumsParser.cs" />
+    <Compile Include="Services\ValuesParsers\WindFrame\WindVelocitiesParsers\WindVelocitiesParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

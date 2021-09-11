@@ -7,7 +7,7 @@ using GismeteoParserConsoleApplication.Services.FrameParsers;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.DailyAverageTemperatureFrame;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.ForecastFrame;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.ForecastFrame.TemperatureExtremumsParsers;
-using GismeteoParserConsoleApplication.Services.ValuesParsers.WindFrame;
+using GismeteoParserConsoleApplication.Services.ValuesParsers.WindFrame.WindVelocitiesParsers;
 using OpenQA.Selenium;
 using OpenQA.Selenium.PhantomJS;
 using Unity;
