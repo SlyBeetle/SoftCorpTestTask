@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using GismeteoParserConsoleApplication.Infrastructure;
 using GismeteoParserConsoleApplication.Models;
 using GismeteoParserConsoleApplication.Services;
+using GismeteoParserConsoleApplication.ValuesParsers;
 using OpenQA.Selenium;
 using OpenQA.Selenium.PhantomJS;
 using Unity;
@@ -15,7 +16,16 @@ namespace GismeteoParserConsoleApplication
         {
             IUnityContainer unityContainer = new UnityContainer();
             unityContainer.RegisterType<IWebDriver, PhantomJSDriver>();
-            unityContainer.RegisterInstance<ICollection<IFrameParser<WeatherForecast>>>(new IFrameParser<WeatherForecast>[] { new ForecastFrameParser() });
+            unityContainer.RegisterInstance<ICollection<IFrameParser<WeatherForecast>>>(
+                new IFrameParser<WeatherForecast>[] {
+                    new ForecastFrameParser(
+                        new IValuesParser<WeatherForecast>[]
+                        {
+                            new DatesParser(),
+                            new PrecipitationTotalsParser(),
+                            new TemperatureExtremumsParser()
+                        })
+                });
             unityContainer.RegisterType<IHtmlDocumentProvider, Grabber>();
 
             GismeteoParser gismeteoParser = unityContainer.Resolve<GismeteoParser>();
