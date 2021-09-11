@@ -5,7 +5,7 @@
     {
         public int MaxVelocity { get; set; }
 
-        public int DailyAverage { get; set; }
+        public int DailyAverageVelocity { get; set; }
 
         public string WindDirection { get; set; }
     }
