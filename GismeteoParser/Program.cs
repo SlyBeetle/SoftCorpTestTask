@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using GismeteoParserConsoleApplication.Infrastructure;
 using GismeteoParserConsoleApplication.Models;
 using GismeteoParserConsoleApplication.Services;
-using GismeteoParserConsoleApplication.ValuesParsers;
+using GismeteoParserConsoleApplication.Services.ValuesParsers;
 using OpenQA.Selenium;
 using OpenQA.Selenium.PhantomJS;
 using Unity;
