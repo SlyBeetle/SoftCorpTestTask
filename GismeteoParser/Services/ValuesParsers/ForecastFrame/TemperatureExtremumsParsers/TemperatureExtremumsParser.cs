@@ -4,7 +4,7 @@ using GismeteoParserConsoleApplication.Infrastructure;
 using GismeteoParserConsoleApplication.Models;
 using HtmlAgilityPack;
 
-namespace GismeteoParserConsoleApplication.Services.ValuesParsers.TemperatureExtremumsParsers
+namespace GismeteoParserConsoleApplication.Services.ValuesParsers.ForecastFrame.TemperatureExtremumsParsers
 {
     internal abstract class TemperatureExtremumsParser : IValuesParser<WeatherForecast>
     {

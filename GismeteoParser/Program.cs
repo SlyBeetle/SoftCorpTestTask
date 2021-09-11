@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using GismeteoParserConsoleApplication.Services.FrameParsers;
 using GismeteoParserConsoleApplication.Infrastructure;
 using GismeteoParserConsoleApplication.Models;
 using GismeteoParserConsoleApplication.Services;
-using GismeteoParserConsoleApplication.Services.ValuesParsers;
-using GismeteoParserConsoleApplication.Services.ValuesParsers.TemperatureExtremumsParsers;
+using GismeteoParserConsoleApplication.Services.FrameParsers;
+using GismeteoParserConsoleApplication.Services.ValuesParsers.DailyAverageTemperatureFrame;
+using GismeteoParserConsoleApplication.Services.ValuesParsers.ForecastFrame;
+using GismeteoParserConsoleApplication.Services.ValuesParsers.ForecastFrame.TemperatureExtremumsParsers;
+using GismeteoParserConsoleApplication.Services.ValuesParsers.WindFrame;
 using OpenQA.Selenium;
 using OpenQA.Selenium.PhantomJS;
 using Unity;

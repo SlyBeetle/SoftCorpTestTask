@@ -4,7 +4,7 @@ using GismeteoParserConsoleApplication.Infrastructure;
 using GismeteoParserConsoleApplication.Models;
 using HtmlAgilityPack;
 
-namespace GismeteoParserConsoleApplication.Services.ValuesParsers
+namespace GismeteoParserConsoleApplication.Services.ValuesParsers.ForecastFrame
 {
     internal class PrecipitationTotalsParser : IValuesParser<WeatherForecast>
     {
