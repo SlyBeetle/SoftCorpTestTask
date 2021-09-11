@@ -28,5 +28,7 @@ namespace GismeteoParserConsoleApplication.Services.FrameParsers
                 valuesParser.Parse(_frame, weatherForecastForTenDays);
             }
         }
+
+        protected string GetFrameXPathByIndexNumber(int indexNumber) => $"//div[@class=\"__frame_sm\"]/*[{indexNumber}]";
     }
 }
