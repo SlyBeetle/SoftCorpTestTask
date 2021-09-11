@@ -28,6 +28,7 @@ namespace GismeteoParserConsoleApplication
                 Console.WriteLine(weatherForecast.Temperature.Min);
                 Console.WriteLine(weatherForecast.PrecipitationTotal);
                 Console.WriteLine(weatherForecast.Temperature.DailyAverage);
+                Console.WriteLine(weatherForecast.Wind.DailyAverageVelocity);
                 Console.WriteLine();
             }
             Console.ReadKey();
@@ -51,6 +52,11 @@ namespace GismeteoParserConsoleApplication
                         new IValuesParser<WeatherForecast>[]
                         {
                             new DailyAverageTemperaturesParser()
+                        }),
+                    new WindFrameParser(
+                        new IValuesParser<WeatherForecast>[]
+                        {
+                            new DailyAverageWindVelocitiesParser()
                         })
                 });
             unityContainer.RegisterType<IHtmlDocumentProvider, Grabber>();
