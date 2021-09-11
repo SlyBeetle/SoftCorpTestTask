@@ -40,7 +40,7 @@ namespace GismeteoParserConsoleApplication.Services
             return weatherForecasts;
         }
 
-        private IEnumerable<string> GetUrlOfCities()
+        private IEnumerable<string> GetUrlsOfCities()
         {
             HtmlDocument homePage = _htmlDocumentProvider.GetHtmlDocument(HOME_PAGE);
             HtmlNodeCollection anchorsCollection = homePage.DocumentNode.SelectNodes("//section[@class=\"cities cities_frame __frame clearfix\"]//span[@class=\"cities_name\"]/..");
