@@ -26,6 +26,9 @@ namespace GismeteoParserConsoleApplication.Services.FrameParsers
         }
 
         // Starting from one
-        protected string GetFrameXPathByIndexNumber(int indexNumber) => $"//div[@class=\"__frame_sm\"]/*[{indexNumber}]";
+        protected void SetFrameByIndexNumber(HtmlDocument page, int indexNumber) => _frame = page.DocumentNode.SelectSingleNode(GetFrameXPathByIndexNumber(indexNumber));
+
+        // Starting from one
+        private string GetFrameXPathByIndexNumber(int indexNumber) => $"//div[@class=\"__frame_sm\"]/*[{indexNumber}]";
     }
 }

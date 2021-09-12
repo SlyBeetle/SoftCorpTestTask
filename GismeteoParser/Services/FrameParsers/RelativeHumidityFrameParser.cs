@@ -13,7 +13,7 @@ namespace GismeteoParserConsoleApplication.Services.FrameParsers
 
         public override void Parse(HtmlDocument page, IList<WeatherForecast> weatherForecastForTenDays)
         {
-            _frame = page.DocumentNode.SelectSingleNode(GetFrameXPathByIndexNumber(9));
+            SetFrameByIndexNumber(page, 9);
 
             ExecuteValuesParsers(weatherForecastForTenDays);
         }
