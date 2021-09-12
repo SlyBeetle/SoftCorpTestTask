@@ -25,7 +25,7 @@ namespace GismeteoParserConsoleApplication
         {
             IUnityContainer unityContainer = GetUnityContainer();
 
-            GismeteoParser gismeteoParser = unityContainer.Resolve<GismeteoParser>();            
+            IGismeteoParser gismeteoParser = unityContainer.Resolve<IGismeteoParser>();            
             Console.WriteLine();
             foreach (var cityAndWeatherForecastForTenDays in gismeteoParser.GetWeatherForecastForTenDaysByCity())
             {
@@ -101,6 +101,7 @@ namespace GismeteoParserConsoleApplication
                         })
                 });
             unityContainer.RegisterType<IHtmlDocumentProvider, Grabber>();
+            unityContainer.RegisterType<IGismeteoParser, GismeteoParser>();
             return unityContainer;
         }
     }

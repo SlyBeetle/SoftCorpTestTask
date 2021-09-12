@@ -6,7 +6,7 @@ using HtmlAgilityPack;
 
 namespace GismeteoParserConsoleApplication.Services
 {
-    internal class GismeteoParser
+    internal class GismeteoParser : IGismeteoParser
     {
         private const int DAYS_COUNT = 10;
         private const string HOME_PAGE = @"https://www.gismeteo.ru";
