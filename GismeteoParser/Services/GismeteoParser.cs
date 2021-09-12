@@ -40,11 +40,14 @@ namespace GismeteoParserConsoleApplication.Services
             return weatherForecasts;
         }
 
-        private IEnumerable<string> GetUrlsOfCities()
+        public IDictionary<string, string> GetUrlOfCityByCityName()
         {
             HtmlDocument homePage = _htmlDocumentProvider.GetHtmlDocument(HOME_PAGE);
-            HtmlNodeCollection anchorsCollection = homePage.DocumentNode.SelectNodes("//section[@class=\"cities cities_frame __frame clearfix\"]//span[@class=\"cities_name\"]/..");
-            return anchorsCollection.Select(a => a.Attributes["href"].Value);
+            HtmlNode popularSettlementsOfRussia = homePage.DocumentNode.SelectSingleNode("//section[@class=\"cities cities_frame __frame clearfix\"]");
+            IEnumerable<string> urlsOfCities = popularSettlementsOfRussia.SelectNodes(".//span[@class=\"cities_name\"]/..").Select(a => a.Attributes["href"].Value);
+            IEnumerable<string> cityNames = popularSettlementsOfRussia.SelectNodes(".//span").Select(node => node.InnerText.Trim());
+            return cityNames.Zip(urlsOfCities, (cn, uc) => new { cn, uc })
+              .ToDictionary(z => z.cn, z => z.uc);
         }
     }
 }

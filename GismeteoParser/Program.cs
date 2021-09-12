@@ -28,6 +28,11 @@ namespace GismeteoParserConsoleApplication
             GismeteoParser gismeteoParser = unityContainer.Resolve<GismeteoParser>();
             var weatherForecasts = gismeteoParser.GetWeatherForecastForTenDays("https://www.gismeteo.by/weather-barnaul-4720/");
             Console.WriteLine();
+            foreach (var urlAndName in gismeteoParser.GetUrlOfCityByCityName())
+            {
+                Console.WriteLine(urlAndName.Key + ": " + urlAndName.Value);
+            }
+            Console.WriteLine();
             foreach (var weatherForecast in weatherForecasts)
             {
                 Console.Write(weatherForecast.Date + "; ");
