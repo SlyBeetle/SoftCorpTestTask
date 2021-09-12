@@ -7,6 +7,7 @@ using GismeteoParserConsoleApplication.Services.FrameParsers;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.DailyAverageTemperatureFrame;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.ForecastFrame;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.ForecastFrame.TemperatureExtremumsParsers;
+using GismeteoParserConsoleApplication.Services.ValuesParsers.GeomagneticActivityFrame;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.PressureFrame.PressureExtremumsParsers;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.RelativeHumidityFrame;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.UltravioletIndexFrame;
@@ -41,6 +42,7 @@ namespace GismeteoParserConsoleApplication
                 Console.WriteLine(weatherForecast.Pressure.Min);
                 Console.WriteLine(weatherForecast.RelativeHumidity);
                 Console.WriteLine(weatherForecast.UltravioletIndex);
+                Console.WriteLine(weatherForecast.GeomagneticActivity);
                 Console.WriteLine();
             }
             Console.ReadKey();
@@ -87,6 +89,11 @@ namespace GismeteoParserConsoleApplication
                         new IValuesParser<WeatherForecast>[]
                         {
                             new UltravioletIndicesParser()
+                        }),
+                    new GeomagneticActivityFrameParser(
+                        new IValuesParser<WeatherForecast>[]
+                        {
+                            new GeomagneticActivityParser()
                         })
                 });
             unityContainer.RegisterType<IHtmlDocumentProvider, Grabber>();

@@ -66,6 +66,7 @@
     <Compile Include="Services\FrameParsers\DailyAverageTemperatureFrameParser.cs" />
     <Compile Include="Services\FrameParsers\FrameParser.cs" />
     <Compile Include="Services\FrameParsers\PressureFrameParser.cs" />
+    <Compile Include="Services\FrameParsers\GeomagneticActivityFrameParser.cs" />
     <Compile Include="Services\FrameParsers\UltravioletIndexFrameParser.cs" />
     <Compile Include="Services\FrameParsers\WindFrameParser.cs" />
     <Compile Include="Services\FrameParsers\RelativeHumidityFrameParser.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Temperature.cs" />
     <Compile Include="Models\WeatherForecast.cs" />
+    <Compile Include="Services\ValuesParsers\GeomagneticActivityFrame\GeomagneticActivityParser.cs" />
     <Compile Include="Services\ValuesParsers\PressureFrame\PressureExtremumsParsers\MaxPressuresParser.cs" />
     <Compile Include="Services\ValuesParsers\PressureFrame\PressureExtremumsParsers\MinPressuresParser.cs" />
     <Compile Include="Services\ValuesParsers\PressureFrame\PressureExtremumsParsers\TemperatureExtremumsParser.cs" />
