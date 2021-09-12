@@ -10,6 +10,18 @@ namespace GismeteoParserConsoleApplication.Services.ValuesParsers.PressureFrame.
         {
             IList<int> minPressures = GetMinPressures(frame);
 
+            if (minPressures.Count < weatherForecastForTenDays.Count)
+            {
+                HtmlNode valuesNode = frame.SelectSingleNode(".//div[@class=\"values\"]");
+                for (int i = 0; i < weatherForecastForTenDays.Count; i++)
+                {
+                    if (valuesNode.SelectSingleNode($"./div[{i}]/div[@class=\"mint\"]") == null)
+                    {
+                        minPressures.Insert(i, weatherForecastForTenDays[i].Pressure.Max);
+                    }
+                }
+            }
+
             for (int i = 0; i < weatherForecastForTenDays.Count; i++)
             {
                 weatherForecastForTenDays[i].Pressure.Min = minPressures[i];

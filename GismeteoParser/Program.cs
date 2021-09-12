@@ -25,29 +25,29 @@ namespace GismeteoParserConsoleApplication
         {
             IUnityContainer unityContainer = GetUnityContainer();
 
-            GismeteoParser gismeteoParser = unityContainer.Resolve<GismeteoParser>();
-            var weatherForecasts = gismeteoParser.GetWeatherForecastForTenDays("https://www.gismeteo.by/weather-barnaul-4720/");
+            GismeteoParser gismeteoParser = unityContainer.Resolve<GismeteoParser>();            
             Console.WriteLine();
             foreach (var urlAndName in gismeteoParser.GetUrlOfCityByCityName())
             {
                 Console.WriteLine(urlAndName.Key + ": " + urlAndName.Value);
-            }
-            Console.WriteLine();
-            foreach (var weatherForecast in weatherForecasts)
-            {
-                Console.Write(weatherForecast.Date + "; ");
-                Console.Write(weatherForecast.Temperature.Max + "; ");
-                Console.Write(weatherForecast.Temperature.Min + "; ");
-                Console.Write(weatherForecast.PrecipitationTotal + "; ");
-                Console.Write(weatherForecast.Temperature.DailyAverage + "; ");
-                Console.Write(weatherForecast.Wind.DailyAverageVelocity + "; ");
-                Console.Write(weatherForecast.Wind.MaxVelocity + "; ");
-                Console.Write(weatherForecast.Wind.Direction + "; ");
-                Console.Write(weatherForecast.Pressure.Max + "; ");
-                Console.Write(weatherForecast.Pressure.Min + "; ");
-                Console.Write(weatherForecast.RelativeHumidity + "; ");
-                Console.Write(weatherForecast.UltravioletIndex + "; ");
-                Console.Write(weatherForecast.GeomagneticActivity + "; ");
+                var weatherForecasts = gismeteoParser.GetWeatherForecastForTenDays(urlAndName.Value);
+                foreach (var weatherForecast in weatherForecasts)
+                {
+                    Console.Write(weatherForecast.Date + "; ");
+                    Console.Write(weatherForecast.Temperature.Max + "; ");
+                    Console.Write(weatherForecast.Temperature.Min + "; ");
+                    Console.Write(weatherForecast.PrecipitationTotal + "; ");
+                    Console.Write(weatherForecast.Temperature.DailyAverage + "; ");
+                    Console.Write(weatherForecast.Wind.DailyAverageVelocity + "; ");
+                    Console.Write(weatherForecast.Wind.MaxVelocity + "; ");
+                    Console.Write(weatherForecast.Wind.Direction + "; ");
+                    Console.Write(weatherForecast.Pressure.Max + "; ");
+                    Console.Write(weatherForecast.Pressure.Min + "; ");
+                    Console.Write(weatherForecast.RelativeHumidity + "; ");
+                    Console.Write(weatherForecast.UltravioletIndex + "; ");
+                    Console.Write(weatherForecast.GeomagneticActivity + "; ");
+                    Console.WriteLine();
+                }
                 Console.WriteLine();
             }
             Console.ReadKey();

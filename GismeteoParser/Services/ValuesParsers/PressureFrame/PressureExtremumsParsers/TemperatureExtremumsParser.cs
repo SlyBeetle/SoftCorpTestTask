@@ -11,6 +11,6 @@ namespace GismeteoParserConsoleApplication.Services.ValuesParsers.PressureFrame.
         public abstract void Parse(HtmlNode frame, IList<WeatherForecast> weatherForecastForTenDays);
 
         protected IList<int> GetPressures(HtmlNode frame, string extremumType) =>
-            frame.SelectNodes($".//div[@class=\"values\"]//div[@class=\"{extremumType}\"]/span[@class=\"unit unit_pressure_mm_hg_atm\"]").Select(node => int.Parse(node.InnerText)).ToArray();
+            frame.SelectNodes($".//div[@class=\"values\"]//div[@class=\"{extremumType}\"]/span[@class=\"unit unit_pressure_mm_hg_atm\"]").Select(node => int.Parse(node.InnerText)).ToList();
     }
 }

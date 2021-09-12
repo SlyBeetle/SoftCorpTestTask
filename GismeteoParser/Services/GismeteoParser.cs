@@ -9,7 +9,7 @@ namespace GismeteoParserConsoleApplication.Services
     internal class GismeteoParser
     {
         private const int DAYS_COUNT = 10;
-        private const string HOME_PAGE = @"https://www.gismeteo.ru/";
+        private const string HOME_PAGE = @"https://www.gismeteo.ru";
         private const string PATH_SEGMENT_FOR_TEN_DAYS_WEATHER_FORECAST = "10-days/";
 
         private readonly IHtmlDocumentProvider _htmlDocumentProvider;
@@ -23,7 +23,7 @@ namespace GismeteoParserConsoleApplication.Services
 
         public IList<WeatherForecast> GetWeatherForecastForTenDays(string cityUrl)
         {
-            string cityUrlForTenDaysWeatherForecast = cityUrl + PATH_SEGMENT_FOR_TEN_DAYS_WEATHER_FORECAST;
+            string cityUrlForTenDaysWeatherForecast = HOME_PAGE + cityUrl + PATH_SEGMENT_FOR_TEN_DAYS_WEATHER_FORECAST;
             IList<WeatherForecast> weatherForecasts = new WeatherForecast[DAYS_COUNT];
             for (int i = 0; i < weatherForecasts.Count; i++)
             {
@@ -43,9 +43,10 @@ namespace GismeteoParserConsoleApplication.Services
         public IDictionary<string, string> GetUrlOfCityByCityName()
         {
             HtmlDocument homePage = _htmlDocumentProvider.GetHtmlDocument(HOME_PAGE);
-            HtmlNode popularSettlementsOfRussia = homePage.DocumentNode.SelectSingleNode("//section[@class=\"cities cities_frame __frame clearfix\"]");
-            IEnumerable<string> urlsOfCities = popularSettlementsOfRussia.SelectNodes(".//span[@class=\"cities_name\"]/..").Select(a => a.Attributes["href"].Value);
-            IEnumerable<string> cityNames = popularSettlementsOfRussia.SelectNodes(".//following::span[2]").Select(node => node.InnerText.Trim());
+            HtmlNode popularSettlementsOfRussia = homePage.DocumentNode.SelectSingleNode("//div[@class=\"js_cities_pcities cities_section\"]");
+            const string XPATH_FOR_CITY_NAMES = "./div[@class=\"cities_list\"]//span[@class=\"cities_name\"]";
+            IEnumerable<string> urlsOfCities = popularSettlementsOfRussia.SelectNodes($"{XPATH_FOR_CITY_NAMES}/..").Select(a => a.Attributes["href"].Value);
+            IEnumerable<string> cityNames = popularSettlementsOfRussia.SelectNodes(XPATH_FOR_CITY_NAMES).Select(node => node.InnerText.Trim());
             return cityNames.Zip(urlsOfCities, (cn, uc) => new { cn, uc })
               .ToDictionary(z => z.cn, z => z.uc);
         }
