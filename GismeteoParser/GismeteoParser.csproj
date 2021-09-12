@@ -84,7 +84,7 @@
     <Compile Include="Services\ValuesParsers\GeomagneticActivityFrame\GeomagneticActivityParser.cs" />
     <Compile Include="Services\ValuesParsers\PressureFrame\PressureExtremumsParsers\MaxPressuresParser.cs" />
     <Compile Include="Services\ValuesParsers\PressureFrame\PressureExtremumsParsers\MinPressuresParser.cs" />
-    <Compile Include="Services\ValuesParsers\PressureFrame\PressureExtremumsParsers\TemperatureExtremumsParser.cs" />
+    <Compile Include="Services\ValuesParsers\PressureFrame\PressureExtremumsParsers\PressureExtremumsParser.cs" />
     <Compile Include="Services\ValuesParsers\UltravioletIndexFrame\UltravioletIndicesParser.cs" />
     <Compile Include="Services\ValuesParsers\RelativeHumidityFrame\RelativeHumidityParser.cs" />
     <Compile Include="Services\ValuesParsers\WindFrame\DiractionsParser.cs" />
