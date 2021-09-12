@@ -4,6 +4,7 @@ using HtmlAgilityPack;
 
 namespace GismeteoParserConsoleApplication.Services.ValuesParsers.PressureFrame.PressureExtremumsParsers
 {
+    // MinPressuresParser must come after MaxPressuresParser
     internal class MinPressuresParser : PressureExtremumsParser
     {
         public override void Parse(HtmlNode frame, IList<WeatherForecast> weatherForecastForTenDays)

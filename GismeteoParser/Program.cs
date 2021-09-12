@@ -82,8 +82,8 @@ namespace GismeteoParserConsoleApplication
                     new PressureFrameParser(
                         new IValuesParser<WeatherForecast>[]
                         {
-                            new MaxPressuresParser(),
-                            new MinPressuresParser()
+                            new MaxPressuresParser(), // MaxPressuresParser must come before MinPressuresParser
+                            new MinPressuresParser() // MinPressuresParser must come after MaxPressuresParser
                         }),
                     new RelativeHumidityFrameParser(
                         new IValuesParser<WeatherForecast>[]
