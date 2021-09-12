@@ -27,11 +27,10 @@ namespace GismeteoParserConsoleApplication
 
             GismeteoParser gismeteoParser = unityContainer.Resolve<GismeteoParser>();            
             Console.WriteLine();
-            foreach (var urlAndName in gismeteoParser.GetUrlOfCityByCityName())
+            foreach (var cityAndWeatherForecastForTenDays in gismeteoParser.GetWeatherForecastForTenDaysByCity())
             {
-                Console.WriteLine(urlAndName.Key + ": " + urlAndName.Value);
-                var weatherForecasts = gismeteoParser.GetWeatherForecastForTenDays(urlAndName.Value);
-                foreach (var weatherForecast in weatherForecasts)
+                Console.WriteLine(cityAndWeatherForecastForTenDays.Key + ": ");
+                foreach (var weatherForecast in cityAndWeatherForecastForTenDays.Value)
                 {
                     Console.Write(weatherForecast.Date + "; ");
                     Console.Write(weatherForecast.Temperature.Max + "; ");

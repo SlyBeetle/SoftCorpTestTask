@@ -21,7 +21,18 @@ namespace GismeteoParserConsoleApplication.Services
             _frameParsers = wheatherForecastForTenDaysParsers;
         }
 
-        public IList<WeatherForecast> GetWeatherForecastForTenDays(string cityUrl)
+        public IDictionary<string, IList<WeatherForecast>> GetWeatherForecastForTenDaysByCity()
+        {
+            var weatherForecastForTenDaysByCity = new Dictionary<string, IList<WeatherForecast>>();
+            foreach (var nameAndUrl in GetUrlOfCityByCityName())
+            {
+                var weatherForecastForTenDays = GetWeatherForecastForTenDays(nameAndUrl.Value);
+                weatherForecastForTenDaysByCity.Add(nameAndUrl.Key, weatherForecastForTenDays);
+            }
+            return weatherForecastForTenDaysByCity;
+        }
+
+        private IList<WeatherForecast> GetWeatherForecastForTenDays(string cityUrl)
         {
             string cityUrlForTenDaysWeatherForecast = HOME_PAGE + cityUrl + PATH_SEGMENT_FOR_TEN_DAYS_WEATHER_FORECAST;
             IList<WeatherForecast> weatherForecasts = new WeatherForecast[DAYS_COUNT];
@@ -40,7 +51,7 @@ namespace GismeteoParserConsoleApplication.Services
             return weatherForecasts;
         }
 
-        public IDictionary<string, string> GetUrlOfCityByCityName()
+        private IDictionary<string, string> GetUrlOfCityByCityName()
         {
             HtmlDocument homePage = _htmlDocumentProvider.GetHtmlDocument(HOME_PAGE);
             HtmlNode popularSettlementsOfRussia = homePage.DocumentNode.SelectSingleNode("//div[@class=\"js_cities_pcities cities_section\"]");
