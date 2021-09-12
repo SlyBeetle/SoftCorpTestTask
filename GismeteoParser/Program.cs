@@ -30,19 +30,19 @@ namespace GismeteoParserConsoleApplication
             Console.WriteLine();
             foreach (var weatherForecast in weatherForecasts)
             {
-                Console.WriteLine(weatherForecast.Date);
-                Console.WriteLine(weatherForecast.Temperature.Max);
-                Console.WriteLine(weatherForecast.Temperature.Min);
-                Console.WriteLine(weatherForecast.PrecipitationTotal);
-                Console.WriteLine(weatherForecast.Temperature.DailyAverage);
-                Console.WriteLine(weatherForecast.Wind.DailyAverageVelocity);
-                Console.WriteLine(weatherForecast.Wind.MaxVelocity);
-                Console.WriteLine(weatherForecast.Wind.Direction);
-                Console.WriteLine(weatherForecast.Pressure.Max);
-                Console.WriteLine(weatherForecast.Pressure.Min);
-                Console.WriteLine(weatherForecast.RelativeHumidity);
-                Console.WriteLine(weatherForecast.UltravioletIndex);
-                Console.WriteLine(weatherForecast.GeomagneticActivity);
+                Console.Write(weatherForecast.Date + "; ");
+                Console.Write(weatherForecast.Temperature.Max + "; ");
+                Console.Write(weatherForecast.Temperature.Min + "; ");
+                Console.Write(weatherForecast.PrecipitationTotal + "; ");
+                Console.Write(weatherForecast.Temperature.DailyAverage + "; ");
+                Console.Write(weatherForecast.Wind.DailyAverageVelocity + "; ");
+                Console.Write(weatherForecast.Wind.MaxVelocity + "; ");
+                Console.Write(weatherForecast.Wind.Direction + "; ");
+                Console.Write(weatherForecast.Pressure.Max + "; ");
+                Console.Write(weatherForecast.Pressure.Min + "; ");
+                Console.Write(weatherForecast.RelativeHumidity + "; ");
+                Console.Write(weatherForecast.UltravioletIndex + "; ");
+                Console.Write(weatherForecast.GeomagneticActivity + "; ");
                 Console.WriteLine();
             }
             Console.ReadKey();
