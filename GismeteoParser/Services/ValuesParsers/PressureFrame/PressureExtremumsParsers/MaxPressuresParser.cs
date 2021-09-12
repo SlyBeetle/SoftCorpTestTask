@@ -2,7 +2,7 @@
 using GismeteoParserConsoleApplication.Models;
 using HtmlAgilityPack;
 
-namespace GismeteoParserConsoleApplication.Services.ValuesParsers.ForecastFrame.PressureExtremumsParsers
+namespace GismeteoParserConsoleApplication.Services.ValuesParsers.PressureFrame.PressureExtremumsParsers
 {
     internal class MaxPressuresParser : PressureExtremumsParser
     {
