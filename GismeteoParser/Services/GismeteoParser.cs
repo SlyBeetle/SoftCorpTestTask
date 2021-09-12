@@ -45,7 +45,7 @@ namespace GismeteoParserConsoleApplication.Services
             HtmlDocument homePage = _htmlDocumentProvider.GetHtmlDocument(HOME_PAGE);
             HtmlNode popularSettlementsOfRussia = homePage.DocumentNode.SelectSingleNode("//section[@class=\"cities cities_frame __frame clearfix\"]");
             IEnumerable<string> urlsOfCities = popularSettlementsOfRussia.SelectNodes(".//span[@class=\"cities_name\"]/..").Select(a => a.Attributes["href"].Value);
-            IEnumerable<string> cityNames = popularSettlementsOfRussia.SelectNodes(".//span").Select(node => node.InnerText.Trim());
+            IEnumerable<string> cityNames = popularSettlementsOfRussia.SelectNodes(".//following::span[2]").Select(node => node.InnerText.Trim());
             return cityNames.Zip(urlsOfCities, (cn, uc) => new { cn, uc })
               .ToDictionary(z => z.cn, z => z.uc);
         }
