@@ -4,7 +4,7 @@ using GismeteoParserConsoleApplication.Infrastructure;
 using GismeteoParserConsoleApplication.Models;
 using HtmlAgilityPack;
 
-namespace GismeteoParserConsoleApplication.Services.ValuesParsers.DailyAverageTemperatureFrame
+namespace GismeteoParserConsoleApplication.Services.ValuesParsers.RelativeHumidityFrame
 {
     internal class RelativeHumidityParser : IValuesParser<WeatherForecast>
     {
