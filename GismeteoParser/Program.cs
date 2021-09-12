@@ -37,6 +37,7 @@ namespace GismeteoParserConsoleApplication
                 Console.WriteLine(weatherForecast.Wind.Direction);
                 Console.WriteLine(weatherForecast.Pressure.Max);
                 Console.WriteLine(weatherForecast.Pressure.Min);
+                Console.WriteLine(weatherForecast.RelativeHumidity);
                 Console.WriteLine();
             }
             Console.ReadKey();
@@ -73,6 +74,11 @@ namespace GismeteoParserConsoleApplication
                         {
                             new MaxPressuresParser(),
                             new MinPressuresParser()
+                        }),
+                    new RelativeHumidityFrameParser(
+                        new IValuesParser<WeatherForecast>[]
+                        {
+                            new RelativeHumidityParser()
                         })
                 });
             unityContainer.RegisterType<IHtmlDocumentProvider, Grabber>();
