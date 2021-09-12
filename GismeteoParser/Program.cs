@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using GismeteoParserConsoleApplication.DAL;
+using GismeteoParserConsoleApplication.DAL.Infrastructure;
 using GismeteoParserConsoleApplication.Infrastructure;
 using GismeteoParserConsoleApplication.Models;
 using GismeteoParserConsoleApplication.Services;
@@ -27,27 +29,32 @@ namespace GismeteoParserConsoleApplication
 
             IGismeteoParser gismeteoParser = unityContainer.Resolve<IGismeteoParser>();            
             Console.WriteLine();
-            foreach (var cityAndWeatherForecastForTenDays in gismeteoParser.GetWeatherForecastForTenDaysByCity())
+            using (IDataContext database = new GismeteoParserContext())
             {
-                Console.WriteLine(cityAndWeatherForecastForTenDays.Key + ": ");
-                foreach (var weatherForecast in cityAndWeatherForecastForTenDays.Value)
+                foreach (var cityAndWeatherForecastForTenDays in gismeteoParser.GetWeatherForecastForTenDaysByCity())
                 {
-                    Console.Write(weatherForecast.Date + "; ");
-                    Console.Write(weatherForecast.Temperature.Max + "; ");
-                    Console.Write(weatherForecast.Temperature.Min + "; ");
-                    Console.Write(weatherForecast.PrecipitationTotal + "; ");
-                    Console.Write(weatherForecast.Temperature.DailyAverage + "; ");
-                    Console.Write(weatherForecast.Wind.DailyAverageVelocity + "; ");
-                    Console.Write(weatherForecast.Wind.MaxVelocity + "; ");
-                    Console.Write(weatherForecast.Wind.Direction + "; ");
-                    Console.Write(weatherForecast.Pressure.Max + "; ");
-                    Console.Write(weatherForecast.Pressure.Min + "; ");
-                    Console.Write(weatherForecast.RelativeHumidity + "; ");
-                    Console.Write(weatherForecast.UltravioletIndex + "; ");
-                    Console.Write(weatherForecast.GeomagneticActivity + "; ");
+                    Console.WriteLine(cityAndWeatherForecastForTenDays.Key + ": ");
+                    foreach (var weatherForecast in cityAndWeatherForecastForTenDays.Value)
+                    {
+                        database.WeatherForecasts.Add(weatherForecast);
+                        database.SaveChanges();
+                        Console.Write(weatherForecast.Date + "; ");
+                        Console.Write(weatherForecast.Temperature.Max + "; ");
+                        Console.Write(weatherForecast.Temperature.Min + "; ");
+                        Console.Write(weatherForecast.PrecipitationTotal + "; ");
+                        Console.Write(weatherForecast.Temperature.DailyAverage + "; ");
+                        Console.Write(weatherForecast.Wind.DailyAverageVelocity + "; ");
+                        Console.Write(weatherForecast.Wind.MaxVelocity + "; ");
+                        Console.Write(weatherForecast.Wind.Direction + "; ");
+                        Console.Write(weatherForecast.Pressure.Max + "; ");
+                        Console.Write(weatherForecast.Pressure.Min + "; ");
+                        Console.Write(weatherForecast.RelativeHumidity + "; ");
+                        Console.Write(weatherForecast.UltravioletIndex + "; ");
+                        Console.Write(weatherForecast.GeomagneticActivity + "; ");
+                        Console.WriteLine();
+                    }
                     Console.WriteLine();
-                }
-                Console.WriteLine();
+                }                
             }
             Console.ReadKey();
         }

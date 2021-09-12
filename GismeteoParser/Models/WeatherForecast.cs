@@ -2,6 +2,8 @@
 {
     internal class WeatherForecast
     {
+        public int Id { get; set; }
+
         public string Date { get; set; }
 
         // Centigrade
@@ -20,7 +22,7 @@
         public int RelativeHumidity { get; set; }
 
         // In points 
-        public int UltravioletIndex { get; set; }
+        public int? UltravioletIndex { get; set; }
 
         // Kp-index
         public int GeomagneticActivity { get; set; }

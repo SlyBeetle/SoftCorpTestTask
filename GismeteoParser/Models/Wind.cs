@@ -3,7 +3,7 @@
     // In meters per second
     internal class Wind
     {
-        public int MaxVelocity { get; set; }
+        public int? MaxVelocity { get; set; }
 
         public int DailyAverageVelocity { get; set; }
 

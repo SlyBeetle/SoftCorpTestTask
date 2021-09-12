@@ -26,9 +26,22 @@ namespace GismeteoParserConsoleApplication.Services.FrameParsers
         }
 
         // Starting from one
-        protected void SetFrameByIndexNumber(HtmlDocument page, int indexNumber) => _frame = page.DocumentNode.SelectSingleNode(GetFrameXPathByIndexNumber(indexNumber));
+        protected void SetFrameByIndexNumber(HtmlDocument page, int indexNumber)
+        {
+            HtmlNode smFrame = page.DocumentNode.SelectSingleNode("//div[@class=\"__frame_sm\"]");
+            // In Browser: randomSubframe = smFrame.SelectSingleNode("./div[@class=\"wrap_small __frame\"]");
+            HtmlNode randomSubframe =
+                smFrame.SelectSingleNode("./div[@class=\"__frame\"]/a[@class=\"block nolink black trigger trigger_tire trigger_tire_winter clearfix\"]");
+            if (randomSubframe != null)                
+            {
+                const int RANDOM_SUBFRAME_INDEX = 4; // Text nodes are among child nodes.
+                HtmlNode randomSubframeInChildNodesByIndex = smFrame.ChildNodes[RANDOM_SUBFRAME_INDEX];
+                smFrame.RemoveChild(randomSubframeInChildNodesByIndex);
+            }
+            _frame = smFrame.SelectSingleNode(GetFrameXPathByIndexNumber(indexNumber));
+        }
 
         // Starting from one
-        private string GetFrameXPathByIndexNumber(int indexNumber) => $"//div[@class=\"__frame_sm\"]/div[{indexNumber}]";
+        private string GetFrameXPathByIndexNumber(int indexNumber) => $"./div[{indexNumber}]";
     }
 }
