@@ -8,6 +8,7 @@ using GismeteoParserConsoleApplication.Services.ValuesParsers.DailyAverageTemper
 using GismeteoParserConsoleApplication.Services.ValuesParsers.ForecastFrame;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.ForecastFrame.PressureExtremumsParsers;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.ForecastFrame.TemperatureExtremumsParsers;
+using GismeteoParserConsoleApplication.Services.ValuesParsers.UltravioletIndexFrame;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.WindFrame;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.WindFrame.WindVelocitiesParsers;
 using OpenQA.Selenium;
@@ -38,6 +39,7 @@ namespace GismeteoParserConsoleApplication
                 Console.WriteLine(weatherForecast.Pressure.Max);
                 Console.WriteLine(weatherForecast.Pressure.Min);
                 Console.WriteLine(weatherForecast.RelativeHumidity);
+                Console.WriteLine(weatherForecast.UltravioletIndex);
                 Console.WriteLine();
             }
             Console.ReadKey();
@@ -79,6 +81,11 @@ namespace GismeteoParserConsoleApplication
                         new IValuesParser<WeatherForecast>[]
                         {
                             new RelativeHumidityParser()
+                        }),
+                    new UltravioletIndexFrameParser(
+                        new IValuesParser<WeatherForecast>[]
+                        {
+                            new UltravioletIndicesParser()
                         })
                 });
             unityContainer.RegisterType<IHtmlDocumentProvider, Grabber>();
