@@ -16,7 +16,7 @@ namespace GismeteoParserConsoleApplication.Services.ValuesParsers.PressureFrame.
                 HtmlNode valuesNode = frame.SelectSingleNode(".//div[@class=\"values\"]");
                 for (int i = 0; i < weatherForecastForTenDays.Count; i++)
                 {
-                    if (valuesNode.SelectSingleNode($"./div[{i}]/div[@class=\"mint\"]") == null)
+                    if (valuesNode.SelectSingleNode($"./div[{i + 1}]/div[@class=\"mint\"]") == null)
                     {
                         minPressures.Insert(i, weatherForecastForTenDays[i].Pressure.Max);
                     }
