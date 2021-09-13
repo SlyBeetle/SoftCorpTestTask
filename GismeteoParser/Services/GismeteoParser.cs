@@ -26,7 +26,7 @@ namespace GismeteoParserConsoleApplication.Services
         {
             var urlOfCityByCityName = GetUrlOfCityByCityName();
             var citiesWithWeatherForecastForTenDays = new List<City>(urlOfCityByCityName.Count);
-            foreach (var nameAndUrl in urlOfCityByCityName)
+            urlOfCityByCityName.AsParallel().ForAll(nameAndUrl =>
             {
                 City city = new City
                 {
@@ -34,7 +34,7 @@ namespace GismeteoParserConsoleApplication.Services
                     WeatherForecasts = GetWeatherForecastForTenDays(nameAndUrl.Value)
                 };
                 citiesWithWeatherForecastForTenDays.Add(city);
-            }
+            });
             return citiesWithWeatherForecastForTenDays;
         }
 
