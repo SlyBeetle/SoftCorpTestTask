@@ -1,14 +1,12 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using GismeteoParserConsoleApplication.Infrastructure;
 using GismeteoParserConsoleApplication.Models.WeatherForecastModels;
 using HtmlAgilityPack;
 
 namespace GismeteoParserConsoleApplication.Services.ValuesParsers.DailyAverageTemperatureFrame
 {
-    internal class DailyAverageTemperaturesParser : IValuesParser<WeatherForecast>
+    internal class DailyAverageTemperaturesParser : ValuesParser<WeatherForecast>
     {
-        public void Parse(HtmlNode frame, IList<WeatherForecast> weatherForecastForTenDays)
+        public override void Parse(HtmlNode frame, IList<WeatherForecast> weatherForecastForTenDays)
         {
             IList<int> dailyAverageTemperatures = GetDailyAverageTemperatures(frame);
 
@@ -19,6 +17,6 @@ namespace GismeteoParserConsoleApplication.Services.ValuesParsers.DailyAverageTe
         }
 
         private IList<int> GetDailyAverageTemperatures(HtmlNode frame) =>
-            frame.SelectNodes(".//span[@class=\"unit unit_temperature_c\"]").Select(node => int.Parse(node.InnerText.Trim())).ToArray();
+            GetIntegers(frame, ".//span[@class=\"unit unit_temperature_c\"]");
     }
 }

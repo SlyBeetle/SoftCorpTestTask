@@ -99,6 +99,7 @@
     <Compile Include="Services\ValuesParsers\PressureFrame\PressureExtremumsParsers\PressureExtremumsParser.cs" />
     <Compile Include="Services\ValuesParsers\UltravioletIndexFrame\UltravioletIndicesParser.cs" />
     <Compile Include="Services\ValuesParsers\RelativeHumidityFrame\RelativeHumidityParser.cs" />
+    <Compile Include="Services\ValuesParsers\ValuesParser.cs" />
     <Compile Include="Services\ValuesParsers\WindFrame\DiractionsParser.cs" />
     <Compile Include="Services\ValuesParsers\WindFrame\WindVelocitiesParsers\MaxWindVelocitiesParser.cs" />
     <Compile Include="Services\ValuesParsers\WindFrame\WindVelocitiesParsers\DailyAverageWindVelocitiesParser.cs" />

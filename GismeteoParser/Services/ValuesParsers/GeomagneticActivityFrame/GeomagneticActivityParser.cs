@@ -1,14 +1,12 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using GismeteoParserConsoleApplication.Infrastructure;
 using GismeteoParserConsoleApplication.Models.WeatherForecastModels;
 using HtmlAgilityPack;
 
 namespace GismeteoParserConsoleApplication.Services.ValuesParsers.GeomagneticActivityFrame
 {
-    internal class GeomagneticActivityParser : IValuesParser<WeatherForecast>
+    internal class GeomagneticActivityParser : ValuesParser<WeatherForecast>
     {
-        public void Parse(HtmlNode frame, IList<WeatherForecast> weatherForecastForTenDays)
+        public override void Parse(HtmlNode frame, IList<WeatherForecast> weatherForecastForTenDays)
         {
             IList<int> geomagneticActivity = GetGeomagneticActivity(frame);
 
@@ -19,6 +17,6 @@ namespace GismeteoParserConsoleApplication.Services.ValuesParsers.GeomagneticAct
         }
 
         private IList<int> GetGeomagneticActivity(HtmlNode frame) =>
-            frame.SelectNodes(".//div[@class=\"widget__row widget__row_table widget__row_gm\"]/div[@class=\"widget__item\"]/div").Select(node => int.Parse(node.InnerText.Trim())).ToArray();
+            GetIntegers(frame, ".//div[@class=\"widget__row widget__row_table widget__row_gm\"]/div[@class=\"widget__item\"]/div");
     }
 }
