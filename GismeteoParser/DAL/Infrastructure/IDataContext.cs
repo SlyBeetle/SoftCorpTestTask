@@ -8,6 +8,7 @@ namespace GismeteoParserConsoleApplication.DAL.Infrastructure
     {
         IDbSet<City> Cities { get; set; }
         IDbSet<WeatherForecast> WeatherForecasts { get; set; }
+        Database Database { get; }
 
         int SaveChanges();
     }

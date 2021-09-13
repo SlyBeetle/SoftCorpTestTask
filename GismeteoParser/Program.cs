@@ -31,11 +31,11 @@ namespace GismeteoParserConsoleApplication
             Console.WriteLine();
             using (IDataContext database = new GismeteoParserContext())
             {
+                database.Database.ExecuteSqlCommand("DELETE FROM Cities");
                 foreach (var cityAndWeatherForecastForTenDays in gismeteoParser.GetCitiesWithWeatherForecastForTenDays())
                 {
                     Console.WriteLine(cityAndWeatherForecastForTenDays.Name + ": ");
-                    database.Cities.Add(cityAndWeatherForecastForTenDays);
-                    database.SaveChanges();
+                    database.Cities.Add(cityAndWeatherForecastForTenDays);                    
                     foreach (var weatherForecast in cityAndWeatherForecastForTenDays.WeatherForecasts)
                     {                        
                         Console.Write(weatherForecast.Date + "; ");
@@ -55,6 +55,7 @@ namespace GismeteoParserConsoleApplication
                     }
                     Console.WriteLine();
                 }
+                database.SaveChanges();
             }
             Console.ReadKey();
         }
