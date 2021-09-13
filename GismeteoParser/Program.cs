@@ -35,10 +35,9 @@ namespace GismeteoParserConsoleApplication
                 {
                     Console.WriteLine(cityAndWeatherForecastForTenDays.Name + ": ");
                     database.Cities.Add(cityAndWeatherForecastForTenDays);
+                    database.SaveChanges();
                     foreach (var weatherForecast in cityAndWeatherForecastForTenDays.WeatherForecasts)
-                    {
-                        database.WeatherForecasts.Add(weatherForecast);
-                        database.SaveChanges();
+                    {                        
                         Console.Write(weatherForecast.Date + "; ");
                         Console.Write(weatherForecast.Temperature.Max + "; ");
                         Console.Write(weatherForecast.Temperature.Min + "; ");
