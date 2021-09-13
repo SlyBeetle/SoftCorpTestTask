@@ -5,6 +5,6 @@ namespace GismeteoParserConsoleApplication.Infrastructure
 {
     internal interface IGismeteoParser
     {
-        IDictionary<string, IList<WeatherForecast>> GetWeatherForecastForTenDaysByCity();
+        IList<City> GetCitiesWithWeatherForecastForTenDays();
     }
 }

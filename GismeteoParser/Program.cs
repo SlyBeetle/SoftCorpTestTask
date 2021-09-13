@@ -31,14 +31,11 @@ namespace GismeteoParserConsoleApplication
             Console.WriteLine();
             using (IDataContext database = new GismeteoParserContext())
             {
-                foreach (var cityAndWeatherForecastForTenDays in gismeteoParser.GetWeatherForecastForTenDaysByCity())
+                foreach (var cityAndWeatherForecastForTenDays in gismeteoParser.GetCitiesWithWeatherForecastForTenDays())
                 {
-                    Console.WriteLine(cityAndWeatherForecastForTenDays.Key + ": ");
-                    City city = new City();
-                    city.Name = cityAndWeatherForecastForTenDays.Key;
-                    city.WeatherForecasts = cityAndWeatherForecastForTenDays.Value;
-                    database.Cities.Add(city);
-                    foreach (var weatherForecast in cityAndWeatherForecastForTenDays.Value)
+                    Console.WriteLine(cityAndWeatherForecastForTenDays.Name + ": ");
+                    database.Cities.Add(cityAndWeatherForecastForTenDays);
+                    foreach (var weatherForecast in cityAndWeatherForecastForTenDays.WeatherForecasts)
                     {
                         database.WeatherForecasts.Add(weatherForecast);
                         database.SaveChanges();
@@ -58,7 +55,7 @@ namespace GismeteoParserConsoleApplication
                         Console.WriteLine();
                     }
                     Console.WriteLine();
-                }                
+                }
             }
             Console.ReadKey();
         }

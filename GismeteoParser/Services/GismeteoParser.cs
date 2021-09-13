@@ -21,15 +21,20 @@ namespace GismeteoParserConsoleApplication.Services
             _frameParsers = wheatherForecastForTenDaysParsers;
         }
 
-        public IDictionary<string, IList<WeatherForecast>> GetWeatherForecastForTenDaysByCity()
+        public IList<City> GetCitiesWithWeatherForecastForTenDays()
         {
-            var weatherForecastForTenDaysByCity = new Dictionary<string, IList<WeatherForecast>>();
-            foreach (var nameAndUrl in GetUrlOfCityByCityName())
+            var urlOfCityByCityName = GetUrlOfCityByCityName();
+            var citiesWithWeatherForecastForTenDays = new List<City>(urlOfCityByCityName.Count);
+            foreach (var nameAndUrl in urlOfCityByCityName)
             {
-                var weatherForecastForTenDays = GetWeatherForecastForTenDays(nameAndUrl.Value);
-                weatherForecastForTenDaysByCity.Add(nameAndUrl.Key, weatherForecastForTenDays);
+                City city = new City
+                {
+                    Name = nameAndUrl.Key,
+                    WeatherForecasts = GetWeatherForecastForTenDays(nameAndUrl.Value)
+                };
+                citiesWithWeatherForecastForTenDays.Add(city);
             }
-            return weatherForecastForTenDaysByCity;
+            return citiesWithWeatherForecastForTenDays;
         }
 
         private IList<WeatherForecast> GetWeatherForecastForTenDays(string cityUrl)
