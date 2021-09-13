@@ -8,14 +8,13 @@ namespace GismeteoParserConsoleApplication.Services.ValuesParsers.WindFrame.Wind
     {
         public override void Parse(HtmlNode frame, IList<WeatherForecast> weatherForecastForTenDays)
         {
-            IList<int?> maxWindVelocities = GetMaxWindVelocitiesParser(frame);
-
-            for (int i = 0; i < weatherForecastForTenDays.Count; i++)
-            {
-                weatherForecastForTenDays[i].Wind.MaxVelocity = maxWindVelocities[i];
-            }
+            SetValues(
+                frame,
+                weatherForecastForTenDays,
+                GetMaxWindVelocities,
+                (weatherForecast, value) => weatherForecast.Wind.MaxVelocity = value);
         }
 
-        private IList<int?> GetMaxWindVelocitiesParser(HtmlNode frame) => GetWindVelocities(frame, "widget__row widget__row_table widget__row_gust");
+        private IList<int?> GetMaxWindVelocities(HtmlNode frame) => GetWindVelocities(frame, "widget__row widget__row_table widget__row_gust");
     }
 }

@@ -8,12 +8,11 @@ namespace GismeteoParserConsoleApplication.Services.ValuesParsers.DailyAverageTe
     {
         public override void Parse(HtmlNode frame, IList<WeatherForecast> weatherForecastForTenDays)
         {
-            IList<int> dailyAverageTemperatures = GetDailyAverageTemperatures(frame);
-
-            for (int i = 0; i < weatherForecastForTenDays.Count; i++)
-            {
-                weatherForecastForTenDays[i].Temperature.DailyAverage = dailyAverageTemperatures[i];
-            }
+            SetValues(
+                frame,
+                weatherForecastForTenDays,
+                GetDailyAverageTemperatures,
+                (weatherForecast, integer) => weatherForecast.Temperature.DailyAverage = integer);
         }
 
         private IList<int> GetDailyAverageTemperatures(HtmlNode frame) =>

@@ -1,21 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using GismeteoParserConsoleApplication.Infrastructure;
 using GismeteoParserConsoleApplication.Models.WeatherForecastModels;
 using HtmlAgilityPack;
 
 namespace GismeteoParserConsoleApplication.Services.ValuesParsers.UltravioletIndexFrame
 {
-    internal class UltravioletIndicesParser : IValuesParser<WeatherForecast>
+    internal class UltravioletIndicesParser : ValuesParser<WeatherForecast>
     {
-        public void Parse(HtmlNode frame, IList<WeatherForecast> weatherForecastForTenDays)
+        public override void Parse(HtmlNode frame, IList<WeatherForecast> weatherForecastForTenDays)
         {
-            IList<int?> ultravioletIndices = GetUltravioletIndices(frame);
-
-            for (int i = 0; i < weatherForecastForTenDays.Count; i++)
-            {
-                weatherForecastForTenDays[i].UltravioletIndex = ultravioletIndices[i];
-            }
+            SetValues(
+                frame,
+                weatherForecastForTenDays,
+                GetUltravioletIndices,
+                (weatherForecast, value) => weatherForecast.UltravioletIndex = value);
         }
 
         private IList<int?> GetUltravioletIndices(HtmlNode frame) =>

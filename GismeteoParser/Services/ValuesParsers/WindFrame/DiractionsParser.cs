@@ -1,21 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using GismeteoParserConsoleApplication.Infrastructure;
 using GismeteoParserConsoleApplication.Models.WeatherForecastModels;
 using HtmlAgilityPack;
 
 namespace GismeteoParserConsoleApplication.Services.ValuesParsers.WindFrame
 {
-    internal class DiractionsParser : IValuesParser<WeatherForecast>
+    internal class DiractionsParser : ValuesParser<WeatherForecast>
     {
-        public void Parse(HtmlNode frame, IList<WeatherForecast> weatherForecastForTenDays)
+        public override void Parse(HtmlNode frame, IList<WeatherForecast> weatherForecastForTenDays)
         {
-            IList<string> directions = GetDirections(frame);
-
-            for (int i = 0; i < weatherForecastForTenDays.Count; i++)
-            {
-                weatherForecastForTenDays[i].Wind.Direction = directions[i];
-            }
+            SetValues(
+                frame,
+                weatherForecastForTenDays,
+                GetDirections,
+                (weatherForecast, value) => weatherForecast.Wind.Direction = value);
         }
 
         private IList<string> GetDirections(HtmlNode frame) =>

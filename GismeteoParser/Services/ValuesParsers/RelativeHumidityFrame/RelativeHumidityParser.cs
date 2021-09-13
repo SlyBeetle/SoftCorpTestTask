@@ -8,12 +8,11 @@ namespace GismeteoParserConsoleApplication.Services.ValuesParsers.RelativeHumidi
     {
         public override void Parse(HtmlNode frame, IList<WeatherForecast> weatherForecastForTenDays)
         {
-            IList<int> relativeHumidity = GetRelativeHumidity(frame);
-
-            for (int i = 0; i < weatherForecastForTenDays.Count; i++)
-            {
-                weatherForecastForTenDays[i].RelativeHumidity = relativeHumidity[i];
-            }
+            SetValues(
+                frame,
+                weatherForecastForTenDays,
+                GetRelativeHumidity,
+                (weatherForecast, value) => weatherForecast.RelativeHumidity = value);
         }
 
         private IList<int> GetRelativeHumidity(HtmlNode frame) =>

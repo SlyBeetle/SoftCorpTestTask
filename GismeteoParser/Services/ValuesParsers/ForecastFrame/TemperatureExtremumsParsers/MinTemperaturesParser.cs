@@ -23,10 +23,7 @@ namespace GismeteoParserConsoleApplication.Services.ValuesParsers.ForecastFrame.
                 }
             }
 
-            for (int i = 0; i < weatherForecastForTenDays.Count; i++)
-            {
-                weatherForecastForTenDays[i].Temperature.Min = minTemperatures[i];
-            }
+            SetValues(weatherForecastForTenDays, minTemperatures, (weatherForecast, value) => weatherForecast.Temperature.Min = value);
         }
 
         private IList<int> GetMinTemperatures(HtmlNode frame) => GetTemperatures(frame, "mint");

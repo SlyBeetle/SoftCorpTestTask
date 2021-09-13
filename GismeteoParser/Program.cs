@@ -70,9 +70,9 @@ namespace GismeteoParserConsoleApplication
                         new IValuesParser<WeatherForecast>[]
                         {
                             new DatesParser(),
-                            new PrecipitationTotalsParser(),
                             new MaxTemperaturesParser(),
-                            new MinTemperaturesParser()
+                            new MinTemperaturesParser(),
+                            new PrecipitationTotalsParser()
                         }),
                     new DailyAverageTemperatureFrameParser(
                         new IValuesParser<WeatherForecast>[]

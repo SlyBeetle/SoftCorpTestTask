@@ -9,12 +9,11 @@ namespace GismeteoParserConsoleApplication.Services.ValuesParsers.PressureFrame.
     {
         public override void Parse(HtmlNode frame, IList<WeatherForecast> weatherForecastForTenDays)
         {
-            IList<int> maxPressures = GetMaxPressures(frame);
-
-            for (int i = 0; i < weatherForecastForTenDays.Count; i++)
-            {
-                weatherForecastForTenDays[i].Pressure.Max = maxPressures[i];
-            }
+            SetValues(
+                frame,
+                weatherForecastForTenDays,
+                GetMaxPressures,
+                (weatherForecast, value) => weatherForecast.Pressure.Max = value);
         }
 
         private IList<int> GetMaxPressures(HtmlNode frame) => GetPressures(frame, "maxt");

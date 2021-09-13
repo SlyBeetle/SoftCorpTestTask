@@ -8,12 +8,11 @@ namespace GismeteoParserConsoleApplication.Services.ValuesParsers.GeomagneticAct
     {
         public override void Parse(HtmlNode frame, IList<WeatherForecast> weatherForecastForTenDays)
         {
-            IList<int> geomagneticActivity = GetGeomagneticActivity(frame);
-
-            for (int i = 0; i < weatherForecastForTenDays.Count; i++)
-            {
-                weatherForecastForTenDays[i].GeomagneticActivity = geomagneticActivity[i];
-            }
+            SetValues(
+                frame,
+                weatherForecastForTenDays,
+                GetGeomagneticActivity,
+                (weatherForecast, value) => weatherForecast.GeomagneticActivity = value);
         }
 
         private IList<int> GetGeomagneticActivity(HtmlNode frame) =>

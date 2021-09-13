@@ -23,10 +23,7 @@ namespace GismeteoParserConsoleApplication.Services.ValuesParsers.PressureFrame.
                 }
             }
 
-            for (int i = 0; i < weatherForecastForTenDays.Count; i++)
-            {
-                weatherForecastForTenDays[i].Pressure.Min = minPressures[i];
-            }
+            SetValues(weatherForecastForTenDays, minPressures, (weatherForecast, value) => weatherForecast.Pressure.Min = value);
         }
 
         private IList<int> GetMinPressures(HtmlNode frame) => GetPressures(frame, "mint");
