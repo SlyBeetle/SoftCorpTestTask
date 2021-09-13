@@ -27,7 +27,7 @@ namespace GismeteoParserConsoleApplication
         {
             IUnityContainer unityContainer = GetUnityContainer();
 
-            IGismeteoParser gismeteoParser = unityContainer.Resolve<IGismeteoParser>();            
+            IGismeteoParser gismeteoParser = unityContainer.Resolve<IGismeteoParser>();
             Console.WriteLine();
             using (IDataContext database = new GismeteoParserContext())
             {
@@ -35,9 +35,9 @@ namespace GismeteoParserConsoleApplication
                 foreach (var cityAndWeatherForecastForTenDays in gismeteoParser.GetCitiesWithWeatherForecastForTenDays())
                 {
                     Console.WriteLine(cityAndWeatherForecastForTenDays.Name + ": ");
-                    database.Cities.Add(cityAndWeatherForecastForTenDays);                    
+                    database.Cities.Add(cityAndWeatherForecastForTenDays);
                     foreach (var weatherForecast in cityAndWeatherForecastForTenDays.WeatherForecasts)
-                    {                        
+                    {
                         Console.Write(weatherForecast.Date + "; ");
                         Console.Write(weatherForecast.Temperature.Max + "; ");
                         Console.Write(weatherForecast.Temperature.Min + "; ");

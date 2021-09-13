@@ -28,7 +28,7 @@ namespace GismeteoParserConsoleApplication.Services.FrameParsers
             // In Browser: randomSubframe = smFrame.SelectSingleNode("./div[@class=\"wrap_small __frame\"]");
             HtmlNode randomSubframe =
                 smFrame.SelectSingleNode("./div[@class=\"__frame\"]/a[@class=\"block nolink black trigger trigger_tire trigger_tire_winter clearfix\"]");
-            if (randomSubframe != null)                
+            if (randomSubframe != null)
             {
                 const int RANDOM_SUBFRAME_INDEX = 4; // Text nodes are among child nodes.
                 HtmlNode randomSubframeInChildNodesByIndex = smFrame.ChildNodes[RANDOM_SUBFRAME_INDEX];
