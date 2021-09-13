@@ -26,5 +26,9 @@
 
         // Kp-index
         public int GeomagneticActivity { get; set; }
+
+        public int CityId { get; set; }
+
+        public City City { get; set; }
     }
 }

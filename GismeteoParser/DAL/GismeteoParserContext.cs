@@ -12,6 +12,7 @@ namespace GismeteoParserConsoleApplication.DAL
         {
         }
 
+        public IDbSet<City> Cities { get; set; }
         public IDbSet<WeatherForecast> WeatherForecasts { get; set; }
     }
 }

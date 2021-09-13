@@ -34,6 +34,10 @@ namespace GismeteoParserConsoleApplication
                 foreach (var cityAndWeatherForecastForTenDays in gismeteoParser.GetWeatherForecastForTenDaysByCity())
                 {
                     Console.WriteLine(cityAndWeatherForecastForTenDays.Key + ": ");
+                    City city = new City();
+                    city.Name = cityAndWeatherForecastForTenDays.Key;
+                    city.WeatherForecasts = cityAndWeatherForecastForTenDays.Value;
+                    database.Cities.Add(city);
                     foreach (var weatherForecast in cityAndWeatherForecastForTenDays.Value)
                     {
                         database.WeatherForecasts.Add(weatherForecast);
