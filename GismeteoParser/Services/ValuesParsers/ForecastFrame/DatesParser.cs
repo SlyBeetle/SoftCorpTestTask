@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using GismeteoParserConsoleApplication.Models.WeatherForecastModels;
 using HtmlAgilityPack;
 
@@ -17,8 +16,7 @@ namespace GismeteoParserConsoleApplication.Services.ValuesParsers.ForecastFrame
         }
 
         private IList<string> GetDates(HtmlNode frame) =>
-            frame.SelectNodes(".//div[@class=\"widget__row widget__row_date\"]//span")
-            .Select(node => node.InnerText.Trim())
-            .ToArray();
+            GetStrings(frame, ".//div[@class=\"widget__row widget__row_date\"]//span");
+
     }
 }

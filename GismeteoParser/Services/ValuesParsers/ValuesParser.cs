@@ -14,6 +14,9 @@ namespace GismeteoParserConsoleApplication.Services.ValuesParsers
         protected IList<int> GetIntegers(HtmlNode frame, string xpath) =>
             frame.SelectNodes(xpath).Select(node => int.Parse(node.InnerText.Trim())).ToArray();
 
+        protected IList<string> GetStrings(HtmlNode frame, string xpath) =>
+            frame.SelectNodes(xpath).Select(node => node.InnerText.Trim()).ToArray();
+
         protected void SetValues<TSimple>(
             HtmlNode frame,
             IList<WeatherForecast> weatherForecastForTenDays,
