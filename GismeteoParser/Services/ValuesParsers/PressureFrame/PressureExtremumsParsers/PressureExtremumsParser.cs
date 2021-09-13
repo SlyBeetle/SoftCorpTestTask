@@ -8,8 +8,6 @@ namespace GismeteoParserConsoleApplication.Services.ValuesParsers.PressureFrame.
     internal abstract class PressureExtremumsParser : ValuesParser<WeatherForecast>
     {
         protected IList<int> GetPressures(HtmlNode frame, string extremumType) =>
-            frame.SelectNodes($".//div[@class=\"values\"]//div[@class=\"{extremumType}\"]/span[@class=\"unit unit_pressure_mm_hg_atm\"]")
-            .Select(node => int.Parse(node.InnerText))
-            .ToList();
+            GetIntegers(frame, $".//div[@class=\"values\"]//div[@class=\"{extremumType}\"]/span[@class=\"unit unit_pressure_mm_hg_atm\"]");
     }
 }

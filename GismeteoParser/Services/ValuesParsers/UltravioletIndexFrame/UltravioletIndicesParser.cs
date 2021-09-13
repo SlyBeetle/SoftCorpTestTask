@@ -17,16 +17,6 @@ namespace GismeteoParserConsoleApplication.Services.ValuesParsers.UltravioletInd
         }
 
         private IList<int?> GetUltravioletIndices(HtmlNode frame) =>
-            frame.SelectNodes(".//div[@class=\"widget__row widget__row_table widget__row_uvb\"]/div[@class=\"widget__item\"]/div")
-            .Select(node =>
-            {
-                int? ultravioletIndex = null;
-                if(int.TryParse(node.InnerText.Trim(), out int ui))
-                {
-                    ultravioletIndex = ui;
-                }
-                return ultravioletIndex;
-            })
-            .ToArray();
+            GetNullableIntegers(frame, ".//div[@class=\"widget__row widget__row_table widget__row_uvb\"]/div[@class=\"widget__item\"]/div");
     }
 }

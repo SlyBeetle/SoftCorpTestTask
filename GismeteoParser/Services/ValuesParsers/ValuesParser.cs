@@ -12,7 +12,20 @@ namespace GismeteoParserConsoleApplication.Services.ValuesParsers
         public abstract void Parse(HtmlNode frame, IList<TComplex> weatherForecastForTenDays);
 
         protected IList<int> GetIntegers(HtmlNode frame, string xpath) =>
-            frame.SelectNodes(xpath).Select(node => int.Parse(node.InnerText.Trim())).ToArray();
+            frame.SelectNodes(xpath).Select(node => int.Parse(node.InnerText.Trim())).ToList();
+
+        protected IList<int?> GetNullableIntegers(HtmlNode frame, string xpath) =>
+            frame.SelectNodes(xpath)
+            .Select(node =>
+            {
+                int? ultravioletIndex = null;
+                if (int.TryParse(node.InnerText.Trim(), out int ui))
+                {
+                    ultravioletIndex = ui;
+                }
+                return ultravioletIndex;
+            })
+            .ToArray();
 
         protected IList<string> GetStrings(HtmlNode frame, string xpath) =>
             frame.SelectNodes(xpath).Select(node => node.InnerText.Trim()).ToArray();
