@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using GismeteoParserConsoleApplication.Infrastructure;
 using GismeteoParserConsoleApplication.Models.WeatherForecastModels;
 using HtmlAgilityPack;
@@ -17,13 +18,8 @@ namespace GismeteoParserConsoleApplication.Services.FrameParsers
 
         public abstract void Parse(HtmlDocument page, IList<WeatherForecast> weatherForecastForTenDays);
 
-        protected void ExecuteValuesParsers(IList<WeatherForecast> weatherForecastForTenDays)
-        {
-            foreach (var valuesParser in _valuesParsers)
-            {
-                valuesParser.Parse(_frame, weatherForecastForTenDays);
-            }
-        }
+        protected void ExecuteValuesParsers(IList<WeatherForecast> weatherForecastForTenDays) =>
+            _valuesParsers.AsParallel().ForAll(valuesParser => valuesParser.Parse(_frame, weatherForecastForTenDays));
 
         // Starting from one
         protected void SetFrameByIndexNumber(HtmlDocument page, int indexNumber)
