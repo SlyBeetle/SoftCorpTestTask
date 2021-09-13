@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GismeteoParserConsoleApplication.Models.WeatherForecastModels;
 
 namespace GismeteoParserConsoleApplication.Models
 {

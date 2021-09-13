@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 using GismeteoParserConsoleApplication.Models;
+using GismeteoParserConsoleApplication.Models.WeatherForecastModels;
 
 namespace GismeteoParserConsoleApplication.DAL.Infrastructure
 {

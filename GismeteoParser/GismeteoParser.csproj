@@ -86,12 +86,12 @@
     <Compile Include="Services\Grabber.cs" />
     <Compile Include="Infrastructure\IHtmlDocumentProvider.cs" />
     <Compile Include="Infrastructure\IFrameParser.cs" />
-    <Compile Include="Models\Pressure.cs" />
-    <Compile Include="Models\Wind.cs" />
+    <Compile Include="Models\WeatherForecast\Pressure.cs" />
+    <Compile Include="Models\WeatherForecast\Wind.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\Temperature.cs" />
-    <Compile Include="Models\WeatherForecast.cs" />
+    <Compile Include="Models\WeatherForecast\Temperature.cs" />
+    <Compile Include="Models\WeatherForecast\WeatherForecast.cs" />
     <Compile Include="Infrastructure\IGismeteoParser.cs" />
     <Compile Include="Services\ValuesParsers\GeomagneticActivityFrame\GeomagneticActivityParser.cs" />
     <Compile Include="Services\ValuesParsers\PressureFrame\PressureExtremumsParsers\MaxPressuresParser.cs" />

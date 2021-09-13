@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using GismeteoParserConsoleApplication.Models;
+using GismeteoParserConsoleApplication.Models.WeatherForecastModels;
 using HtmlAgilityPack;
 
 namespace GismeteoParserConsoleApplication.Services.ValuesParsers.WindFrame.WindVelocitiesParsers

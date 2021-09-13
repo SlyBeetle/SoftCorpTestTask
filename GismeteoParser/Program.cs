@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using GismeteoParserConsoleApplication.DAL;
 using GismeteoParserConsoleApplication.DAL.Infrastructure;
 using GismeteoParserConsoleApplication.Infrastructure;
-using GismeteoParserConsoleApplication.Models;
+using GismeteoParserConsoleApplication.Models.WeatherForecastModels;
 using GismeteoParserConsoleApplication.Services;
 using GismeteoParserConsoleApplication.Services.FrameParsers;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.DailyAverageTemperatureFrame;
