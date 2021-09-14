@@ -115,6 +115,7 @@
   <ItemGroup>
     <Compile Include="DAL\GismeteoParserContext.cs" />
     <Compile Include="DAL\Infrastructure\IDataContext.cs" />
+    <Compile Include="Infrastructure\IGismeteoParserProvider.cs" />
     <Compile Include="Infrastructure\IValuesParser.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Services\FrameParsers\DailyAverageTemperatureFrameParser.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Services\FrameParsers\RelativeHumidityFrameParser.cs" />
     <Compile Include="Services\FrameParsers\ForecastFrameParser.cs" />
     <Compile Include="Services\GismeteoParser.cs" />
+    <Compile Include="Services\UnityGismeteoParserProvider.cs" />
     <Compile Include="Services\Grabber.cs" />
     <Compile Include="Infrastructure\IHtmlDocumentProvider.cs" />
     <Compile Include="Infrastructure\IFrameParser.cs" />
