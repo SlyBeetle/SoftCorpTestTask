@@ -18,12 +18,12 @@ namespace GismeteoParserConsoleApplication.Services.ValuesParsers
             frame.SelectNodes(xpath)
             .Select(node =>
             {
-                int? ultravioletIndex = null;
+                int? nullableInteger = null;
                 if (int.TryParse(node.InnerText.Trim(), out int ui))
                 {
-                    ultravioletIndex = ui;
+                    nullableInteger = ui;
                 }
-                return ultravioletIndex;
+                return nullableInteger;
             })
             .ToArray();
 
