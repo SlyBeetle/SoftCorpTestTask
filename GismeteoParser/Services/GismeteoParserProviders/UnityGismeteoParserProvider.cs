@@ -25,7 +25,7 @@ namespace GismeteoParserConsoleApplication.Services.GismeteoParserProviders
             return unityContainer.Resolve<IGismeteoParser>();
         }
 
-        private static IUnityContainer GetUnityContainer()
+        private IUnityContainer GetUnityContainer()
         {
             IUnityContainer unityContainer = new UnityContainer();
             unityContainer.RegisterType<IWebDriver, PhantomJSDriver>();

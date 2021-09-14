@@ -12,6 +12,11 @@ namespace GismeteoParserConsoleApplication
         {
             IGismeteoParserProvider gismeteoParserProvider = new UnityGismeteoParserProvider();
             IGismeteoParser gismeteoParser = gismeteoParserProvider.GetGismeteoParser();
+            UpdateDatabase(gismeteoParser);
+        }
+
+        private static void UpdateDatabase(IGismeteoParser gismeteoParser)
+        {
             using (IDataContext database = new GismeteoParserContext())
             {
                 database.Database.ExecuteSqlCommand("DELETE FROM Cities");
