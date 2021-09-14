@@ -10,7 +10,7 @@ namespace GismeteoParserConsoleApplication
     {
         public static void Main()
         {
-            IGismeteoParserProvider gismeteoParserProvider = new UnityGismeteoParserProvider();
+            IGismeteoParserProvider gismeteoParserProvider = new SimpleGismeteoParserProvider();
             IGismeteoParser gismeteoParser = gismeteoParserProvider.GetGismeteoParser();
             UpdateDatabase(gismeteoParser);
         }

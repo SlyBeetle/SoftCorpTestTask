@@ -18,8 +18,11 @@ namespace GismeteoParserConsoleApplication.Services.GismeteoParserProviders
     {
         public IGismeteoParser GetGismeteoParser()
         {
+            PhantomJSDriverService phantomJSDriverService = PhantomJSDriverService.CreateDefaultService();
+            phantomJSDriverService.HideCommandPromptWindow = true;
             return new GismeteoParser(
-                new Grabber(new PhantomJSDriver()),
+                new Grabber(
+                    new PhantomJSDriver(phantomJSDriverService)),
                 new IFrameParser<WeatherForecast>[] {
                     new ForecastFrameParser(
                         new IValuesParser<WeatherForecast>[]
