@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using GismeteoParserConsoleApplication.Infrastructure;
+﻿using GismeteoParserConsoleApplication.Infrastructure;
 using GismeteoParserConsoleApplication.Models.WeatherForecastModels;
 using GismeteoParserConsoleApplication.Services.FrameParsers;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.DailyAverageTemperatureFrame;
@@ -11,25 +10,16 @@ using GismeteoParserConsoleApplication.Services.ValuesParsers.RelativeHumidityFr
 using GismeteoParserConsoleApplication.Services.ValuesParsers.UltravioletIndexFrame;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.WindFrame;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.WindFrame.WindVelocitiesParsers;
-using OpenQA.Selenium;
 using OpenQA.Selenium.PhantomJS;
-using Unity;
 
-namespace GismeteoParserConsoleApplication.Services
+namespace GismeteoParserConsoleApplication.Services.GismeteoParserProviders
 {
-    internal class UnityGismeteoParserProvider : IGismeteoParserProvider
+    internal class SimpleGismeteoParserProvider : IGismeteoParserProvider
     {
         public IGismeteoParser GetGismeteoParser()
         {
-            IUnityContainer unityContainer = GetUnityContainer();
-            return unityContainer.Resolve<IGismeteoParser>();
-        }
-
-        private static IUnityContainer GetUnityContainer()
-        {
-            IUnityContainer unityContainer = new UnityContainer();
-            unityContainer.RegisterType<IWebDriver, PhantomJSDriver>();
-            unityContainer.RegisterInstance<ICollection<IFrameParser<WeatherForecast>>>(
+            return new GismeteoParser(
+                new Grabber(new PhantomJSDriver()),
                 new IFrameParser<WeatherForecast>[] {
                     new ForecastFrameParser(
                         new IValuesParser<WeatherForecast>[]
@@ -73,9 +63,6 @@ namespace GismeteoParserConsoleApplication.Services
                             new GeomagneticActivityParser()
                         })
                 });
-            unityContainer.RegisterType<IHtmlDocumentProvider, Grabber>();
-            unityContainer.RegisterType<IGismeteoParser, GismeteoParser>();
-            return unityContainer;
         }
     }
 }

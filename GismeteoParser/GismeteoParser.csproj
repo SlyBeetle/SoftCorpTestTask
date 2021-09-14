@@ -127,7 +127,8 @@
     <Compile Include="Services\FrameParsers\RelativeHumidityFrameParser.cs" />
     <Compile Include="Services\FrameParsers\ForecastFrameParser.cs" />
     <Compile Include="Services\GismeteoParser.cs" />
-    <Compile Include="Services\UnityGismeteoParserProvider.cs" />
+    <Compile Include="Services\GismeteoParserProviders\SimpleGismeteoParserProvider.cs" />
+    <Compile Include="Services\GismeteoParserProviders\UnityGismeteoParserProvider.cs" />
     <Compile Include="Services\Grabber.cs" />
     <Compile Include="Infrastructure\IHtmlDocumentProvider.cs" />
     <Compile Include="Infrastructure\IFrameParser.cs" />

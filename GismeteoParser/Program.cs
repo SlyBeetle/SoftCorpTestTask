@@ -2,7 +2,7 @@
 using GismeteoParserConsoleApplication.DAL;
 using GismeteoParserConsoleApplication.DAL.Infrastructure;
 using GismeteoParserConsoleApplication.Infrastructure;
-using GismeteoParserConsoleApplication.Services;
+using GismeteoParserConsoleApplication.Services.GismeteoParserProviders;
 
 namespace GismeteoParserConsoleApplication
 {
