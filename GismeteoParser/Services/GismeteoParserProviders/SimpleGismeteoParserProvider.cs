@@ -10,7 +10,6 @@ using GismeteoParserConsoleApplication.Services.ValuesParsers.RelativeHumidityFr
 using GismeteoParserConsoleApplication.Services.ValuesParsers.UltravioletIndexFrame;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.WindFrame;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.WindFrame.WindVelocitiesParsers;
-using OpenQA.Selenium.PhantomJS;
 
 namespace GismeteoParserConsoleApplication.Services.GismeteoParserProviders
 {
@@ -18,11 +17,9 @@ namespace GismeteoParserConsoleApplication.Services.GismeteoParserProviders
     {
         public IGismeteoParser GetGismeteoParser()
         {
-            PhantomJSDriverService phantomJSDriverService = PhantomJSDriverService.CreateDefaultService();
-            phantomJSDriverService.HideCommandPromptWindow = true;
+
             return new GismeteoParser(
-                new Grabber(
-                    new PhantomJSDriver(phantomJSDriverService)),
+                new Grabber(),
                 new IFrameParser<WeatherForecast>[] {
                     new ForecastFrameParser(
                         new IValuesParser<WeatherForecast>[]

@@ -1,23 +1,27 @@
 ﻿using GismeteoParserConsoleApplication.Infrastructure;
 using HtmlAgilityPack;
-using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 
 namespace GismeteoParserConsoleApplication.Services
 {
     internal class Grabber : IHtmlDocumentProvider
     {
-        private readonly IWebDriver _webDriver;
-
-        public Grabber(IWebDriver webDriver)
-        {
-            _webDriver = webDriver;
-        }
-
         public HtmlDocument GetHtmlDocument(string url)
         {
-            _webDriver.Navigate().GoToUrl(url);
-            HtmlDocument page = new HtmlDocument();
-            page.LoadHtml(_webDriver.PageSource);
+            var driverService = ChromeDriverService.CreateDefaultService();
+            driverService.HideCommandPromptWindow = true;
+
+            var options = new ChromeOptions();
+            options.AddArgument("headless");
+            options.AddArgument("--blink-settings=imagesEnabled=false");
+
+            HtmlDocument page;
+            using (var _webDriver = new ChromeDriver(driverService, options))
+            {
+                _webDriver.Navigate().GoToUrl(url);
+                page = new HtmlDocument();
+                page.LoadHtml(_webDriver.PageSource);
+            }
             return page;
         }
     }
