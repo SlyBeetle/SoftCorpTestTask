@@ -1,9 +1,9 @@
 ﻿using System.Data.Entity;
-using GismeteoParserConsoleApplication.DAL.Infrastructure;
-using GismeteoParserConsoleApplication.Models;
-using GismeteoParserConsoleApplication.Models.WeatherForecastModels;
+using GismeteoCore.DAL.Infrastructure;
+using GismeteoCore.Models;
+using GismeteoCore.Models.WeatherForecastModels;
 
-namespace GismeteoParserConsoleApplication.DAL
+namespace GismeteoCore.DAL
 {
     [DbConfigurationType(typeof(MySql.Data.EntityFramework.MySqlEFConfiguration))]
     public class GismeteoContext : DbContext, IDataContext

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using GismeteoParserConsoleApplication.Models.WeatherForecastModels;
+using GismeteoCore.Models.WeatherForecastModels;
 
-namespace GismeteoParserConsoleApplication.Models
+namespace GismeteoCore.Models
 {
     public class City
     {

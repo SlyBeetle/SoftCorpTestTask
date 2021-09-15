@@ -1,4 +1,4 @@
-﻿namespace GismeteoParserConsoleApplication.Models.WeatherForecastModels
+﻿namespace GismeteoCore.Models.WeatherForecastModels
 {
     // In meters per second
     public class Wind

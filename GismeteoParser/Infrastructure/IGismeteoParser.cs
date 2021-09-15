@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using GismeteoParserConsoleApplication.Models;
+using GismeteoCore.Models;
 
 namespace GismeteoParserConsoleApplication.Infrastructure
 {

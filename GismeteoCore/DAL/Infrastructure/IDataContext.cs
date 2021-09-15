@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Data.Entity;
-using GismeteoParserConsoleApplication.Models;
-using GismeteoParserConsoleApplication.Models.WeatherForecastModels;
+using GismeteoCore.Models;
+using GismeteoCore.Models.WeatherForecastModels;
 
-namespace GismeteoParserConsoleApplication.DAL.Infrastructure
+namespace GismeteoCore.DAL.Infrastructure
 {
     public interface IDataContext : IDisposable
     {

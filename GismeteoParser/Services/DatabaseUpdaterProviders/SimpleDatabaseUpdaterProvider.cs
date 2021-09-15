@@ -1,5 +1,5 @@
 ﻿using GismeteoParserConsoleApplication.Infrastructure;
-using GismeteoParserConsoleApplication.Models.WeatherForecastModels;
+using GismeteoCore.Models.WeatherForecastModels;
 using GismeteoParserConsoleApplication.Services.FrameParsers;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.DailyAverageTemperatureFrame;
 using GismeteoParserConsoleApplication.Services.ValuesParsers.ForecastFrame;

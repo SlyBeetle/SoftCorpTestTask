@@ -1,5 +1,5 @@
-﻿using GismeteoParserConsoleApplication.DAL;
-using GismeteoParserConsoleApplication.DAL.Infrastructure;
+﻿using GismeteoCore.DAL;
+using GismeteoCore.DAL.Infrastructure;
 using GismeteoParserConsoleApplication.Infrastructure;
 
 namespace GismeteoParserConsoleApplication.Services

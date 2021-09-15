@@ -1,4 +1,4 @@
-﻿namespace GismeteoParserConsoleApplication.Models.WeatherForecastModels
+﻿namespace GismeteoCore.Models.WeatherForecastModels
 {
     // In millimeters of mercury
     public class Pressure

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using GismeteoParserConsoleApplication.Infrastructure;
-using GismeteoParserConsoleApplication.Models.WeatherForecastModels;
+using GismeteoCore.Models.WeatherForecastModels;
 using HtmlAgilityPack;
 
 namespace GismeteoParserConsoleApplication.Services.FrameParsers
