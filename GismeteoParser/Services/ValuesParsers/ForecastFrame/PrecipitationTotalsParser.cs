@@ -16,9 +16,24 @@ namespace GismeteoParserConsoleApplication.Services.ValuesParsers.ForecastFrame
                 (weatherForecast, value) => weatherForecast.PrecipitationTotal = value);
         }
 
-        private IList<double> GetPrecipitationTotals(HtmlNode frame) =>
-            frame.SelectNodes(".//div[@class=\"widget__row widget__row_table widget__row_precipitation\"]//div[@class=\"w_prec__value\"]")
-            .Select(node => double.Parse(node.InnerText))
-            .ToArray();
+        private IList<double> GetPrecipitationTotals(HtmlNode frame)
+        {
+            try
+            {
+                return frame.SelectNodes(".//div[@class=\"widget__row widget__row_table widget__row_precipitation\"]//div[@class=\"w_prec__value\"]")
+                .Select(node => double.Parse(node.InnerText))
+                .ToArray();
+            }
+            catch
+            {
+                const string MESSAGE = "Без осадков";
+                string message = frame.SelectSingleNode(".//div[@class=\"widget__row widget__row_table widget__row_precipitation\"]/div").InnerText;
+                if (message == MESSAGE)
+                {
+                    return new double[GismeteoParser.DAYS_COUNT];
+                }
+                throw;
+            }
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace GismeteoParserConsoleApplication.Services
 {
     internal class GismeteoParser : IGismeteoParser
     {
-        private const int DAYS_COUNT = 10;
+        public const int DAYS_COUNT = 10;
         private const string HOME_PAGE = @"https://www.gismeteo.ru";
         private const string PATH_SEGMENT_FOR_TEN_DAYS_WEATHER_FORECAST = "10-days/";
 
