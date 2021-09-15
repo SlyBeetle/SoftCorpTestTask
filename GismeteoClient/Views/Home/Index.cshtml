@@ -1,0 +1,90 @@
+﻿@model IEnumerable<GismeteoCore.Models.City>
+
+@{
+    ViewBag.Title = "Gismeteo Web Client";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            Weather Forecast For Ten Days
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayName("Dates")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Max temperatures")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Min temperatures")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Precipitation total")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Daily average temperatures")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Daily average wind velocity")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Wind direction")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Max wind velocity")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Max pressure")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Min pressure")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Relative humidity")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Ultraviolet index")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Geomagnetic activity")
+                        </th>
+                        <th></th>
+                    </tr>
+                    @foreach (var weatherForecast in item.WeatherForecasts) {
+                        <tr>
+                            <td>@weatherForecast.Date</td>
+                            <td>@weatherForecast.Temperature.Max</td>
+                            <td>@weatherForecast.Temperature.Min</td>
+                            <td>@weatherForecast.PrecipitationTotal</td>
+                            <td>@weatherForecast.Temperature.DailyAverage</td>
+                            <td>@weatherForecast.Wind.DailyAverageVelocity</td>
+                            <td>@weatherForecast.Wind.Direction</td>
+                            <td>@weatherForecast.Wind.MaxVelocity</td>
+                            <td>@weatherForecast.Pressure.Max</td>
+                            <td>@weatherForecast.Pressure.Min</td>
+                            <td>@weatherForecast.RelativeHumidity</td>
+                            <td>@weatherForecast.UltravioletIndex</td>
+                            <td>@weatherForecast.GeomagneticActivity</td>
+                            <td></td>
+                        </tr>
+                    }
+                </table>
+            </td>
+        </tr>
+    }
+
+</table>
