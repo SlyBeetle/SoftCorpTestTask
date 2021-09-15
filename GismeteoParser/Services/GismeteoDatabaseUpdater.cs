@@ -8,10 +8,12 @@ namespace GismeteoParserConsoleApplication.Services
     internal class GismeteoDatabaseUpdater : IDatabaseUpdater
     {
         private readonly IGismeteoParser _gismeteoParser;
+        private readonly ILogger _logger;
 
-        public GismeteoDatabaseUpdater(IGismeteoParser gismeteoParser)
+        public GismeteoDatabaseUpdater(IGismeteoParser gismeteoParser, ILogger logger)
         {
             _gismeteoParser = gismeteoParser;
+            _logger = logger;
         }
 
         public void UpdateDatabase()
@@ -22,7 +24,7 @@ namespace GismeteoParserConsoleApplication.Services
                 foreach (var cityAndWeatherForecastForTenDays in _gismeteoParser.GetCitiesWithWeatherForecastForTenDays())
                 {
                     database.Cities.Add(cityAndWeatherForecastForTenDays);
-                    Console.WriteLine($"Parsing of weather forecasts for the {cityAndWeatherForecastForTenDays.Name} city has been completed.");
+                    _logger.Log($"Parsing of weather forecasts for the {cityAndWeatherForecastForTenDays.Name} city has been completed.");
                 }
                 database.SaveChanges();
             }

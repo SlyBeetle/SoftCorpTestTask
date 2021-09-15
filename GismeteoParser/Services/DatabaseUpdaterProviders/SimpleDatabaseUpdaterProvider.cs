@@ -62,7 +62,8 @@ namespace GismeteoParserConsoleApplication.Services.DatabaseUpdaterProviders
                             {
                                 new GeomagneticActivityParser()
                             })
-                    })
+                    }),
+                new ConsoleLogger()
                 );
         }
     }

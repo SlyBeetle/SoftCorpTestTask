@@ -118,8 +118,10 @@
     <Compile Include="DAL\Infrastructure\IDataContext.cs" />
     <Compile Include="Infrastructure\IDatabaseUpdater.cs" />
     <Compile Include="Infrastructure\IGismeteoParserProvider.cs" />
+    <Compile Include="Infrastructure\ILogger.cs" />
     <Compile Include="Infrastructure\IValuesParser.cs" />
     <Compile Include="Models\City.cs" />
+    <Compile Include="Services\ConsoleLogger.cs" />
     <Compile Include="Services\FrameParsers\DailyAverageTemperatureFrameParser.cs" />
     <Compile Include="Services\FrameParsers\FrameParser.cs" />
     <Compile Include="Services\FrameParsers\PressureFrameParser.cs" />
