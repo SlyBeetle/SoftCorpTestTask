@@ -97,7 +97,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\GismeteoParserContext.cs" />
+    <Compile Include="DAL\GismeteoContext.cs" />
     <Compile Include="DAL\Infrastructure\IDataContext.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\WeatherForecast\Pressure.cs" />

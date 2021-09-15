@@ -6,11 +6,11 @@ using GismeteoParserConsoleApplication.Models.WeatherForecastModels;
 namespace GismeteoParserConsoleApplication.DAL
 {
     [DbConfigurationType(typeof(MySql.Data.EntityFramework.MySqlEFConfiguration))]
-    public class GismeteoParserContext : DbContext, IDataContext
+    public class GismeteoContext : DbContext, IDataContext
     {
         private const string NAME_OF_DATABASE_CONNECTION_STRING = "GismeteoParserDbConnection";
 
-        public GismeteoParserContext() : base(NAME_OF_DATABASE_CONNECTION_STRING)
+        public GismeteoContext() : base(NAME_OF_DATABASE_CONNECTION_STRING)
         {
         }
 

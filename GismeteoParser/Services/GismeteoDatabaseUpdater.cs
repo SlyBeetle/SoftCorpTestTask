@@ -17,7 +17,7 @@ namespace GismeteoParserConsoleApplication.Services
 
         public void UpdateDatabase()
         {
-            using (IDataContext database = new GismeteoParserContext())
+            using (IDataContext database = new GismeteoContext())
             {
                 _logger.Log("Starting updating the database...");
                 database.Database.ExecuteSqlCommand("DELETE FROM Cities");
