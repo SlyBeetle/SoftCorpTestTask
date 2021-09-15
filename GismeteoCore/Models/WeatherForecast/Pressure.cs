@@ -1,7 +1,7 @@
 ﻿namespace GismeteoParserConsoleApplication.Models.WeatherForecastModels
 {
     // In millimeters of mercury
-    internal class Pressure
+    public class Pressure
     {
         public int Max { get; set; }
 

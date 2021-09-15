@@ -1,5 +1,4 @@
-﻿using System;
-using GismeteoParserConsoleApplication.DAL;
+﻿using GismeteoParserConsoleApplication.DAL;
 using GismeteoParserConsoleApplication.DAL.Infrastructure;
 using GismeteoParserConsoleApplication.Infrastructure;
 

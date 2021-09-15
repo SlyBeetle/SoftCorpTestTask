@@ -1,7 +1,7 @@
 ﻿namespace GismeteoParserConsoleApplication.Models.WeatherForecastModels
 {
     // Centigrade
-    internal class Temperature
+    public class Temperature
     {
         public int Max { get; set; }
 

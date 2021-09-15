@@ -3,7 +3,7 @@ using GismeteoParserConsoleApplication.Models.WeatherForecastModels;
 
 namespace GismeteoParserConsoleApplication.Models
 {
-    internal class City
+    public class City
     {
         public int Id { get; set; }
 

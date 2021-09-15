@@ -1,6 +1,6 @@
 ﻿namespace GismeteoParserConsoleApplication.Models.WeatherForecastModels
 {
-    internal class WeatherForecast
+    public class WeatherForecast
     {
         public int Id { get; set; }
 
