@@ -20,6 +20,7 @@ namespace GismeteoParserConsoleApplication.Services
         {
             using (IDataContext database = new GismeteoParserContext())
             {
+                _logger.Log("Starting updating the database...");
                 database.Database.ExecuteSqlCommand("DELETE FROM Cities");
                 foreach (var cityAndWeatherForecastForTenDays in _gismeteoParser.GetCitiesWithWeatherForecastForTenDays())
                 {
@@ -27,6 +28,8 @@ namespace GismeteoParserConsoleApplication.Services
                     _logger.Log($"Parsing of weather forecasts for the {cityAndWeatherForecastForTenDays.Name} city has been completed.");
                 }
                 database.SaveChanges();
+                _logger.Log("Update of the database is finished!");
+                _logger.Log("");
             }
         }
     }
