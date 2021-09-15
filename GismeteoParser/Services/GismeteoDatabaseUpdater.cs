@@ -21,26 +21,8 @@ namespace GismeteoParserConsoleApplication.Services
                 database.Database.ExecuteSqlCommand("DELETE FROM Cities");
                 foreach (var cityAndWeatherForecastForTenDays in _gismeteoParser.GetCitiesWithWeatherForecastForTenDays())
                 {
-                    Console.WriteLine(cityAndWeatherForecastForTenDays.Name + ": ");
                     database.Cities.Add(cityAndWeatherForecastForTenDays);
-                    foreach (var weatherForecast in cityAndWeatherForecastForTenDays.WeatherForecasts)
-                    {
-                        Console.Write(weatherForecast.Date + "; ");
-                        Console.Write(weatherForecast.Temperature.Max + "; ");
-                        Console.Write(weatherForecast.Temperature.Min + "; ");
-                        Console.Write(weatherForecast.PrecipitationTotal + "; ");
-                        Console.Write(weatherForecast.Temperature.DailyAverage + "; ");
-                        Console.Write(weatherForecast.Wind.DailyAverageVelocity + "; ");
-                        Console.Write(weatherForecast.Wind.MaxVelocity + "; ");
-                        Console.Write(weatherForecast.Wind.Direction + "; ");
-                        Console.Write(weatherForecast.Pressure.Max + "; ");
-                        Console.Write(weatherForecast.Pressure.Min + "; ");
-                        Console.Write(weatherForecast.RelativeHumidity + "; ");
-                        Console.Write(weatherForecast.UltravioletIndex + "; ");
-                        Console.Write(weatherForecast.GeomagneticActivity + "; ");
-                        Console.WriteLine();
-                    }
-                    Console.WriteLine();
+                    Console.WriteLine($"Parsing of weather forecasts for the {cityAndWeatherForecastForTenDays.Name} city has been completed.");
                 }
                 database.SaveChanges();
             }
