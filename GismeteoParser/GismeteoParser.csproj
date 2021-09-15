@@ -130,8 +130,8 @@
     <Compile Include="Services\FrameParsers\ForecastFrameParser.cs" />
     <Compile Include="Services\GismeteoDatabaseUpdater.cs" />
     <Compile Include="Services\GismeteoParser.cs" />
-    <Compile Include="Services\GismeteoParserProviders\SimpleGismeteoParserProvider.cs" />
-    <Compile Include="Services\GismeteoParserProviders\UnityGismeteoParserProvider.cs" />
+    <Compile Include="Services\DatabaseUpdaterProviders\SimpleDatabaseUpdaterProvider.cs" />
+    <Compile Include="Services\DatabaseUpdaterProviders\UnityDatabaseUpdaterProvider.cs" />
     <Compile Include="Services\Grabber.cs" />
     <Compile Include="Infrastructure\IHtmlDocumentProvider.cs" />
     <Compile Include="Infrastructure\IFrameParser.cs" />

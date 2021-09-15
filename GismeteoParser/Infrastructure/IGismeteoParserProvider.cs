@@ -1,7 +1,7 @@
 ﻿namespace GismeteoParserConsoleApplication.Infrastructure
 {
-    internal interface IGismeteoParserProvider
+    internal interface IDatabaseUpdaterProvider
     {
-        IGismeteoParser GetGismeteoParser();
+        IDatabaseUpdater GetDatabaseUpdater();
     }
 }

@@ -7,12 +7,19 @@ namespace GismeteoParserConsoleApplication.Services
 {
     internal class GismeteoDatabaseUpdater : IDatabaseUpdater
     {
-        public void UpdateDatabase(IGismeteoParser gismeteoParser)
+        private readonly IGismeteoParser _gismeteoParser;
+
+        public GismeteoDatabaseUpdater(IGismeteoParser gismeteoParser)
+        {
+            _gismeteoParser = gismeteoParser;
+        }
+
+        public void UpdateDatabase()
         {
             using (IDataContext database = new GismeteoParserContext())
             {
                 database.Database.ExecuteSqlCommand("DELETE FROM Cities");
-                foreach (var cityAndWeatherForecastForTenDays in gismeteoParser.GetCitiesWithWeatherForecastForTenDays())
+                foreach (var cityAndWeatherForecastForTenDays in _gismeteoParser.GetCitiesWithWeatherForecastForTenDays())
                 {
                     Console.WriteLine(cityAndWeatherForecastForTenDays.Name + ": ");
                     database.Cities.Add(cityAndWeatherForecastForTenDays);

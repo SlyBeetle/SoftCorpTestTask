@@ -2,6 +2,6 @@
 {
     internal interface IDatabaseUpdater
     {
-        void UpdateDatabase(IGismeteoParser gismeteoParser);
+        void UpdateDatabase();
     }
 }

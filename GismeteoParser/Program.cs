@@ -1,6 +1,5 @@
 ﻿using GismeteoParserConsoleApplication.Infrastructure;
-using GismeteoParserConsoleApplication.Services;
-using GismeteoParserConsoleApplication.Services.GismeteoParserProviders;
+using GismeteoParserConsoleApplication.Services.DatabaseUpdaterProviders;
 
 namespace GismeteoParserConsoleApplication
 {
@@ -8,10 +7,9 @@ namespace GismeteoParserConsoleApplication
     {
         public static void Main()
         {
-            IGismeteoParserProvider gismeteoParserProvider = new SimpleGismeteoParserProvider();
-            IGismeteoParser gismeteoParser = gismeteoParserProvider.GetGismeteoParser();
-            IDatabaseUpdater databaseUpdater = new GismeteoDatabaseUpdater();
-            databaseUpdater.UpdateDatabase(gismeteoParser);
+            IDatabaseUpdaterProvider databaseUpdaterProvider = new SimpleDatabaseUpdaterProvider();
+            IDatabaseUpdater databaseUpdater = databaseUpdaterProvider.GetDatabaseUpdater();
+            databaseUpdater.UpdateDatabase();
         }
     }
 }

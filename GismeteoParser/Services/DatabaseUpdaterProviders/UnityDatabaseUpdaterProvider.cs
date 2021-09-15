@@ -15,9 +15,10 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.PhantomJS;
 using Unity;
 
-namespace GismeteoParserConsoleApplication.Services.GismeteoParserProviders
+namespace GismeteoParserConsoleApplication.Services.DatabaseUpdaterProviders
 {
-    internal class UnityGismeteoParserProvider : IGismeteoParserProvider
+    // Unfinished
+    internal class UnityDatabaseUpdaterProvider
     {
         public IGismeteoParser GetGismeteoParser()
         {
