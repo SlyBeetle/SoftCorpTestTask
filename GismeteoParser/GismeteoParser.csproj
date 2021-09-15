@@ -119,6 +119,7 @@
     <Compile Include="Infrastructure\IDatabaseUpdater.cs" />
     <Compile Include="Infrastructure\IGismeteoParserProvider.cs" />
     <Compile Include="Infrastructure\ILogger.cs" />
+    <Compile Include="Infrastructure\ITimer.cs" />
     <Compile Include="Infrastructure\IValuesParser.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Services\ConsoleLogger.cs" />
@@ -144,6 +145,7 @@
     <Compile Include="Models\WeatherForecast\Temperature.cs" />
     <Compile Include="Models\WeatherForecast\WeatherForecast.cs" />
     <Compile Include="Infrastructure\IGismeteoParser.cs" />
+    <Compile Include="Services\SystemThreadingTimer.cs" />
     <Compile Include="Services\ValuesParsers\GeomagneticActivityFrame\GeomagneticActivityParser.cs" />
     <Compile Include="Services\ValuesParsers\PressureFrame\PressureExtremumsParsers\MaxPressuresParser.cs" />
     <Compile Include="Services\ValuesParsers\PressureFrame\PressureExtremumsParsers\MinPressuresParser.cs" />

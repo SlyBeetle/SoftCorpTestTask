@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Threading;
 using GismeteoParserConsoleApplication.Infrastructure;
+using GismeteoParserConsoleApplication.Services;
 using GismeteoParserConsoleApplication.Services.DatabaseUpdaterProviders;
 
 namespace GismeteoParserConsoleApplication
@@ -13,7 +13,8 @@ namespace GismeteoParserConsoleApplication
 
         public static void Main()
         {
-            Timer timer = new Timer(UpdateDatabase, null, 0, DATABASE_UPDATE_INTERVAL);
+            ITimer timer = new SystemThreadingTimer(UpdateDatabase);
+            timer.Start(DATABASE_UPDATE_INTERVAL);
             Console.ReadKey();
         }
 
